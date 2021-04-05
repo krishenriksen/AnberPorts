@@ -3,9 +3,9 @@
 # Release: 2018    Genre: First-person shooter
 
 printf "\e[32mDownloading Sonic Robo Blast 2 Kart ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/sonic-robo-blast-2-kart.zip'
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/sonic-robo-blast-2-kart.z01'
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/sonic-robo-blast-2-kart.z02'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/sonic-robo-blast-2-kart.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/sonic-robo-blast-2-kart.z01'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/sonic-robo-blast-2-kart.z02'
 wget -q -O "../Sonic Robo Blast 2 Kart.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Sonic%20Robo%20Blast%202%20Kart.sh'
 chmod +x "../Sonic Robo Blast 2 Kart.sh"
 

@@ -3,7 +3,7 @@
 # Release: 1994    Genre: First-person shooter
 
 printf "\e[32mDownloading The Clue! ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/derclou.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/derclou.zip'
 wget -q -O "The Clue.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/The%20Clue.sh'
 
 printf "\e[32mExtracting ..." > /dev/tty1

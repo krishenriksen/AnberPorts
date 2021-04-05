@@ -3,7 +3,7 @@
 # Release: 2010    Genre: First-person shooter
 
 printf "\e[32mDownloading Super Crate Box ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/super-crate-box.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/super-crate-box.zip'
 wget -q -O "Super Crate Box.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Super%20Crate%20Box.sh'
 
 printf "\e[32mExtracting ..." > /dev/tty1

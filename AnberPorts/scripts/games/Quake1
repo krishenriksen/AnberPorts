@@ -3,7 +3,7 @@
 # Release: 1996    Genre: First-person shooter
 
 printf "\e[32mDownloading Quake 1 ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/quake1.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/quake1.zip'
 wget -q -O "Quake 1.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Quake%201.sh'
 
 printf "\e[32mPlease copy 'PAK0.PAK' to your quake1 directory! ..." > /dev/tty1

@@ -3,7 +3,7 @@
 # Release: 1997    Genre: Role-playing hack-and-slash
 
 printf "\e[32mDownloading Diablo 1 ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/diablo1.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/diablo1.zip'
 wget -q -O "Diablo 1.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Diablo%201.sh'
 
 printf "\e[32mExtracting ..." > /dev/tty1

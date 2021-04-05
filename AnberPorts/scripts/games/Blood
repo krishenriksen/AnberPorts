@@ -3,7 +3,7 @@
 # Release: 1997    Genre: First-person shooter
 
 printf "\e[32mDownloading Blood ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/blood.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/blood.zip'
 wget -q -O "Blood.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Blood.sh'
 
 printf "\e[32mPlease copy games files to your Blood directory! ..." > /dev/tty1

@@ -3,7 +3,7 @@
 # Release: 1997    Genre: First-person shooter
 
 printf "\e[32mDownloading Quake 2 ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/quake2.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/quake2.zip'
 wget -q -O "Quake 2.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Quake%202.sh'
 
 printf "\e[32mPlease copy '*.pak' to your quake2/baseq2 directory! ..." > /dev/tty1

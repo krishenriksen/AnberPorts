@@ -3,7 +3,7 @@
 # Release: 1996    Genre: First-person shooter
 
 printf "\e[32mDownloading Eduke32 ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/eduke32.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/eduke32.zip'
 wget -q -O "Duke Nukem 3D.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Duke%20Nukem%203D.sh'
 
 printf "\e[32mPlease copy 'DUKE3D.GRP' to your eduke32 directory! ..." > /dev/tty1

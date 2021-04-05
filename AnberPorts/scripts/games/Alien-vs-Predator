@@ -3,7 +3,7 @@
 # Release: 2010    Genre: First-person shooter
 
 printf "\e[32mDownloading Alien vs. Predator ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/avp.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/avp.zip'
 wget -q -O "Alien vs. Predator.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Alien%20vs.%20Predator.sh'
 
 printf "\e[32mPlease copy games files to your Alien vs. Predator directory! ..." > /dev/tty1

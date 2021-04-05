@@ -3,7 +3,7 @@
 # Release: 1999    Genre: Action-adventure
 
 printf "\e[32mDownloading AM2R ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/am2r.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/am2r.zip'
 wget -q -O "AM2R.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/AM2R.sh'
 
 printf "\e[32mExtracting ..." > /dev/tty1

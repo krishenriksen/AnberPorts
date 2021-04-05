@@ -3,7 +3,7 @@
 # Release: 1995    Genre: First-person shooter
 
 printf "\e[32mDownloading Descent ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/descent.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/descent.zip'
 wget -q -O "Descent.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Descent.sh'
 
 printf "\e[32mExtracting ..." > /dev/tty1

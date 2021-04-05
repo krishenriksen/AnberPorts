@@ -3,7 +3,7 @@
 # Release: 1989    Genre: Side-scrolling platform
 
 printf "\e[32mDownloading Rick Dangerous ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/rick-dangerous.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/rick-dangerous.zip'
 wget -q -O "Rick Dangerous.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Rick%20Dangerous.sh'
 
 printf "\e[32mExtracting ..." > /dev/tty1

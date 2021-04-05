@@ -3,7 +3,7 @@
 # Release: 1999    Genre: Racing
 
 printf "\e[32mDownloading CannonBall ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/cannonball.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/cannonball.zip'
 wget -q -O "Cannonball.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Cannonball.sh'
 
 printf "\e[32mExtracting ..." > /dev/tty1

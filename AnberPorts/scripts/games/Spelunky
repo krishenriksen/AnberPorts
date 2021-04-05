@@ -3,7 +3,7 @@
 # Release: 2008    Genre: Side-scrolling platform
 
 printf "\e[32mDownloading Spelunky ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/spelunky.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/spelunky.zip'
 wget -q -O "Spelunky.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Spelunky.sh'
 
 printf "\e[32mExtracting ..." > /dev/tty1

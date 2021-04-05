@@ -3,7 +3,7 @@
 # Release: 2004    Genre: Platform-adventure
 
 printf "\e[32mDownloading Cave-Story ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/cavestory.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/cavestory.zip'
 wget -q -O "Cave Story.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Cave%20Story.sh'
 
 printf "\e[32mExtracting ..." > /dev/tty1

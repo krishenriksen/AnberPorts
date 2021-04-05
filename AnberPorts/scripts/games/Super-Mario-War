@@ -3,7 +3,7 @@
 # Release: 2008    Genre: Platform-adventure
 
 printf "\e[32mDownloading Super Mario War ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/super-mario-war.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/super-mario-war.zip'
 wget -q -O "../Super Mario War.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Super%20Mario%20War.sh'
 chmod +x "../Super Mario War.sh"
 

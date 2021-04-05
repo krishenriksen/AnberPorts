@@ -3,7 +3,7 @@
 # Release: 1997    Genre: First-person shooter
 
 printf "\e[32mDownloading Shadow Warrior ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/shadow-warrior.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/shadow-warrior.zip'
 wget -q -O "Shadow Warrior.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Shadow%20Warrior.sh'
 
 printf "\e[32mPlease copy game files to your shadow-warrior directory! ..." > /dev/tty1

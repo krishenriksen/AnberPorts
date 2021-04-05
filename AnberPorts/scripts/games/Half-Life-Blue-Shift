@@ -3,7 +3,7 @@
 # Release: 2001    Genre: First-person shooter
 
 printf "\e[32mDownloading Half-Life: Blue Shift ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/half-life.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/half-life.zip'
 wget -q -O "Half-Life Blue Shift.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Half-Life%20Blue%20Shift.sh'
 
 printf "\e[32mExtracting ..." > /dev/tty1

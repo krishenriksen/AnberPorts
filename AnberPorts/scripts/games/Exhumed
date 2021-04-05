@@ -3,7 +3,7 @@
 # Release: 1996    Genre: First-person shooter
 
 printf "\e[32mDownloading Exhumed / PowerSlave ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/exhumed.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/exhumed.zip'
 wget -q -O "Exhumed.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Exhumed.sh'
 
 printf "\e[32mPlease copy games files to your Exhumed directory! ..." > /dev/tty1

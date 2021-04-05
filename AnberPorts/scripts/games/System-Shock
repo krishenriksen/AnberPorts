@@ -3,7 +3,7 @@
 # Release: 1994    Genre: First-person shooter
 
 printf "\e[32mDownloading System Shock ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/system-shock.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/system-shock.zip'
 wget -q -O "System Shock.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/System%20Shock.sh'
 
 printf "\e[32mPlease copy game 'data' folder to your system-shock/res directory! ..." > /dev/tty1

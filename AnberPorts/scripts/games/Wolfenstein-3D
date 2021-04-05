@@ -3,7 +3,7 @@
 # Release: 1992    Genre: First-person shooter
 
 printf "\e[32mDownloading Wolfenstein 3D ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/wolfenstein3d.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/wolfenstein3d.zip'
 wget -q -O "Wolfenstein 3D.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Wolfenstein%203D.sh'
 wget -q -O "Wolfenstein 3D - Spear of Destiny.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Wolfenstein%203D%20-%20Spear%20of%20Destiny.sh'
 wget -q -O "Wolfenstein 3D - Spear of Destiny MP2.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Wolfenstein%203D%20-%20Spear%20of%20Destiny%20MP2.sh'

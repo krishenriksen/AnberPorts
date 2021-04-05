@@ -3,7 +3,7 @@
 # Release: 1994    Genre: First-person shooter
 
 printf "\e[32mDownloading Doom 2 ..." > /dev/tty1
-wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/doom2.zip'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/doom2.zip'
 wget -q -O "Doom 2.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Doom%202.sh'
 
 printf "\e[32mPlease copy 'Doom2.wad' to your doom2 directory! ..." > /dev/tty1
