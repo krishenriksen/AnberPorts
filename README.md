@@ -9,6 +9,6 @@
 
 ## Support the project
 
-[<img src="https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/sponsor.png" width="200"/>](https://github.com/sponsors/krishenriksen)
+[<img src="https://github.com/krishenriksen/AnberPorts/raw/master/sponsor.png" width="200"/>](https://github.com/sponsors/krishenriksen)
 
 [Become a sponsor for AnberPorts](https://github.com/sponsors/krishenriksen)
