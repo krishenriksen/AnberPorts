@@ -1,0 +1,12 @@
+#!/bin/bash
+# Gamestream client for embedded systems
+# Release: 2017    Genre: Streaming
+
+printf "\e[32mDownloading Moonlight-Embedded ..." > /dev/tty1
+wget -q 'https://github.com/krishenriksen/moonlight-embedded-rg351p/releases/download/1.0.0/moonlight-embedded.zip'
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o moonlight-embedded.zip -d ../
+
+printf "\e[32mCleaning up ..." > /dev/tty1
+rm -rf moonlight-embedded.zip

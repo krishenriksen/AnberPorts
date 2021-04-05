@@ -1,0 +1,19 @@
+#!/bin/bash
+# First-person shooter video game set during the events of World War II.
+# Release: 1999    Genre: First-person shooter
+
+printf "\e[32mDownloading World War II GI ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/world-war-ii-gi.zip'
+wget -q -O "World War II GI.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/World%20War%20II%20GI.sh'
+
+printf "\e[32mPlease copy game files to your World War II GI directory! ..." > /dev/tty1
+unzip -qq -o world-war-ii-gi.zip -d ../
+chmod +x "World War II GI.sh"
+mv -f "World War II GI.sh" ../
+
+mkdir -p ~/.config/rednukem
+mv "../World War II GI/rednukem.cfg" ~/.config/rednukem/
+mv "../World War II GI/settings.cfg" ~/.config/rednukem/
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf world-war-ii-gi.zip

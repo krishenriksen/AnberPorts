@@ -1,0 +1,17 @@
+#!/bin/bash
+# Diablo II is an action role-playing hack-and-slash computer video game developed by Blizzard North.
+# Release: 2000    Genre: Role-playing hack-and-slash
+
+printf "\e[32mDownloading Diablo 2 ..." > /dev/tty1
+wget -q 'https://github.com/krishenriksen/weston-rg351p/releases/download/1.0.0/diablo2.zip'
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o diablo2.zip -d ../
+
+mkdir -p ~/.config/OpenDiablo2
+cp ../diablo2/config.json ~/.config/OpenDiablo2/
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf diablo2.zip
+
+printf "\e[32mPlease copy LoD v1.13c game files to your diablo2 directory! ..." > /dev/tty1

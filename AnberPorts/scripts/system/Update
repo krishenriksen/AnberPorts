@@ -1,0 +1,15 @@
+#!/bin/bash
+# Update AnberPorts to latest version
+# Release: 2021    Genre: System
+
+printf "\e[32mDownloading latest release of AnberPorts ...\n" > /dev/tty1
+wget -q -O ../AnberPorts.zip `wget -qO- https://api.github.com/repos/krishenriksen/AnberPorts/releases/latest | grep browser_download_url | cut -d '"' -f 4`
+
+printf "\e[32mRemoving old version ...\n" > /dev/tty1
+rm -rf ../AnberPorts
+
+printf "\e[32mExtracting ...\n" > /dev/tty1
+unzip -qq -o ../AnberPorts.zip -d ../
+
+printf "\e[32mCleaning up ...\n" > /dev/tty1
+rm -rf ../AnberPorts.zip

@@ -1,0 +1,18 @@
+#!/bin/bash
+# Platform game developed by Core Design.
+# Release: 1989    Genre: Side-scrolling platform
+
+printf "\e[32mDownloading Rick Dangerous ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/rick-dangerous.zip'
+wget -q -O "Rick Dangerous.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Rick%20Dangerous.sh'
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o rick-dangerous.zip -d ../
+chmod +x "Rick Dangerous.sh"
+mv -f "Rick Dangerous.sh" ../
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf rick-dangerous.zip
+
+printf "\e[32mEnjoy! ..." > /dev/tty1
+sleep 3

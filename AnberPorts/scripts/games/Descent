@@ -1,0 +1,15 @@
+#!/bin/bash
+# Shooter game developed by Parallax Software.
+# Release: 1995    Genre: First-person shooter
+
+printf "\e[32mDownloading Descent ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/descent.zip'
+wget -q -O "Descent.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Descent.sh'
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o descent.zip -d ../
+chmod +x "Descent.sh"
+mv -f "Descent.sh" ../
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf descent.zip

@@ -1,0 +1,14 @@
+#!/bin/bash
+# Digger is a video game released by Canadian developer Windmill.
+# Release: 1983    Genre: Platform
+
+printf "\e[32mDownloading Digger ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/digger.zip'
+wget -q -O "../Digger.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Digger.sh'
+chmod +x "../Digger.sh"
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o digger.zip -d ../
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf digger.zip

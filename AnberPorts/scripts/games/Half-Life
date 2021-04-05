@@ -1,0 +1,15 @@
+#!/bin/bash
+# The game combine shooting combat, puzzles, and storytelling.
+# Release: 1998    Genre: First-person shooter
+
+printf "\e[32mDownloading Half-Life ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/half-life.zip'
+wget -q -O "Half-Life.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Half-Life.sh'
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o half-life.zip -d ../
+chmod +x "Half-Life.sh"
+mv -f "Half-Life.sh" ../
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf half-life.zip

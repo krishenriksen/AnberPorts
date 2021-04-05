@@ -1,0 +1,15 @@
+#!/bin/bash
+# Flashback, released as Flashback: The Quest for Identity.
+# Release: 1992    Genre: First-person shooter
+
+printf "\e[32mDownloading Flashback ..." > /dev/tty1
+wget -q 'https://github.com/krishenriksen/REminiscence-rg351p/releases/download/1.0.0/flashback.zip'
+wget -q -O "Flashback.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Flashback.sh'
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o flashback.zip -d ../
+chmod +x "Flashback.sh"
+mv -f "Flashback.sh" ../
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf flashback.zip

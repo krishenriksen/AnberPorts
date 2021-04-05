@@ -1,0 +1,18 @@
+#!/bin/bash
+# GeForce NOW is the brand used by Nvidia for its cloud gaming service
+# Release: 2020    Genre: Cloud gaming service
+
+printf "\e[32mDownloading Nvidia GeForce NOW ..." > /dev/tty1
+wget -q 'https://github.com/krishenriksen/weston-rg351p/releases/download/1.0.0/Nvidia.GeForce.NOW.sh'
+wget -q 'https://github.com/krishenriksen/weston-rg351p/releases/download/1.0.0/weston.zip'
+wget -q 'https://github.com/krishenriksen/weston-rg351p/releases/download/1.0.0/chromium.zip'
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o weston.zip -d ../
+unzip -qq -o chromium.zip -d ../
+
+mv Nvidia.GeForce.NOW.sh ../Nvidia\ GeForce\ NOW.sh
+
+printf "\e[32mCleaning up ..." > /dev/tty1
+rm -rf weston.zip
+rm -rf chromium.zip

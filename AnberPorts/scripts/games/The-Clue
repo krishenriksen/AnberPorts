@@ -1,0 +1,15 @@
+#!/bin/bash
+# Inspired by the 1986 game They Stole a Million.
+# Release: 1994    Genre: First-person shooter
+
+printf "\e[32mDownloading The Clue! ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/derclou.zip'
+wget -q -O "The Clue.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/The%20Clue.sh'
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o derclou.zip -d ../
+chmod +x "The Clue.sh"
+mv -f "The Clue.sh" ../
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf derclou.zip

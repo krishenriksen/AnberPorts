@@ -1,0 +1,15 @@
+#!/bin/bash
+# Action-adventure game developed by Argentinian programmer Milton Guasti
+# Release: 1999    Genre: Action-adventure
+
+printf "\e[32mDownloading AM2R ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/am2r.zip'
+wget -q -O "AM2R.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/AM2R.sh'
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o am2r.zip -d ../
+chmod +x "AM2R.sh"
+mv -f "AM2R.sh" ../
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf am2r.zip

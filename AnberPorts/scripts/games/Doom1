@@ -1,0 +1,17 @@
+#!/bin/bash
+# Players assume the role of a space marine.
+# Release: 1993    Genre: First-person shooter
+
+printf "\e[32mDownloading Doom 1 ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/doom1.zip'
+wget -q -O "Doom.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Doom.sh'
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o doom1.zip -d ../
+chmod +x "Doom.sh"
+mv -f "Doom.sh" ../
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf doom1.zip
+
+printf "\e[32mPlease copy 'Doom.wad' to your doom1 directory! ..." > /dev/tty1

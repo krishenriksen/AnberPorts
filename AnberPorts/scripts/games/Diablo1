@@ -1,0 +1,17 @@
+#!/bin/bash
+# Beneath the town of Tristram, the player journeys.
+# Release: 1997    Genre: Role-playing hack-and-slash
+
+printf "\e[32mDownloading Diablo 1 ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/diablo1.zip'
+wget -q -O "Diablo 1.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Diablo%201.sh'
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o diablo1.zip -d ../
+chmod +x "Diablo 1.sh"
+mv -f "Diablo 1.sh" ../
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf diablo1.zip
+
+printf "\e[32mPlease copy 'diabdat.mpq' to your diablo1 directory! ..." > /dev/tty1

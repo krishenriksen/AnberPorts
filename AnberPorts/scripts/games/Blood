@@ -1,0 +1,19 @@
+#!/bin/bash
+# Video game developed by Monolith Productions.
+# Release: 1997    Genre: First-person shooter
+
+printf "\e[32mDownloading Blood ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/blood.zip'
+wget -q -O "Blood.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Blood.sh'
+
+printf "\e[32mPlease copy games files to your Blood directory! ..." > /dev/tty1
+unzip -qq -o blood.zip -d ../
+chmod +x "Blood.sh"
+mv -f "Blood.sh" ../
+
+mkdir -p ~/.config/nblood
+mv ../Blood/nblood.cfg ~/.config/nblood/
+mv ../Blood/settings.cfg ~/.config/nblood/
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf blood.zip

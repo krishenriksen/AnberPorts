@@ -1,0 +1,15 @@
+#!/bin/bash
+# Open-source Sonic the Hedgehog fangame.
+# Release: 1999    Genre: First-person shooter
+
+printf "\e[32mDownloading Sonic Robo Blast 2 ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/sonic-robo-blast-2.zip'
+wget -q -O "Sonic Robo Blast 2.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Sonic%20Robo%20Blast%202.sh'
+
+printf "\e[32mPlease copy games files to your Sonic Robo Blast 2 directory! ..." > /dev/tty1
+unzip -qq -o sonic-robo-blast-2.zip -d ../
+chmod +x "Sonic Robo Blast 2.sh"
+mv -f "Sonic Robo Blast 2.sh" ../
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf sonic-robo-blast-2.zip

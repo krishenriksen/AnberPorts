@@ -1,0 +1,11 @@
+#!/bin/bash
+# Exit to emulationstation
+# Release: 2021    Genre: System
+
+pgrep -f AnberPorts | xargs kill -9
+
+if systemctl --all --type service | grep -q 'emustation'; then
+  systemctl restart emustation
+else
+  sudo systemctl restart emulationstation
+fi

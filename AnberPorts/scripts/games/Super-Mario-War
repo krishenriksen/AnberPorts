@@ -1,0 +1,17 @@
+#!/bin/bash
+# Ppen-source, cross-platform, platform-adventure video game
+# Release: 2008    Genre: Platform-adventure
+
+printf "\e[32mDownloading Super Mario War ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/super-mario-war.zip'
+wget -q -O "../Super Mario War.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Super%20Mario%20War.sh'
+chmod +x "../Super Mario War.sh"
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o super-mario-war.zip -d ../
+
+mkdir -p ~/.smw
+cp -r ../smw-netplay/home-.smw/* ~/.smw/
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf super-mario-war.zip

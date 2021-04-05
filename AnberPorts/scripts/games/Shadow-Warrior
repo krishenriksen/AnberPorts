@@ -1,0 +1,18 @@
+#!/bin/bash
+# Focuses on the exploits of Lo Wang, a modern ninja warrior.
+# Release: 1997    Genre: First-person shooter
+
+printf "\e[32mDownloading Shadow Warrior ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/shadow-warrior.zip'
+wget -q -O "Shadow Warrior.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Shadow%20Warrior.sh'
+
+printf "\e[32mPlease copy game files to your shadow-warrior directory! ..." > /dev/tty1
+unzip -qq -o shadow-warrior.zip -d ../
+chmod +x "Shadow Warrior.sh"
+mv -f "Shadow Warrior.sh" ../
+
+mkdir -p ~/.jfsw
+mv ../shadow-warrior/sw.cfg ~/.jfsw/
+
+printf "\e[32mCleaning up ..." > /dev/tty1
+rm -rf shadow-warrior.zip

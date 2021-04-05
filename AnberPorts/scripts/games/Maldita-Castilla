@@ -1,0 +1,15 @@
+#!/bin/bash
+# Maldita Castilla, known in North America and PAL regions.
+# Release: 2012    Genre: Arcade action
+
+printf "\e[32mDownloading Maldita Castilla ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/maldita-castilla.zip'
+wget -q -O "Maldita Castilla.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Maldita%20Castilla.sh'
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o maldita-castilla.zip -d ../
+chmod +x "Maldita Castilla.sh"
+mv -f "Maldita Castilla.sh" ../
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf maldita-castilla.zip

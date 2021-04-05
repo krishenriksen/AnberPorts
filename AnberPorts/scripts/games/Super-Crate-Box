@@ -1,0 +1,15 @@
+#!/bin/bash
+# Super Crate Box is a shoot 'em up indie game by Vlambeer.
+# Release: 2010    Genre: First-person shooter
+
+printf "\e[32mDownloading Super Crate Box ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/super-crate-box.zip'
+wget -q -O "Super Crate Box.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Super%20Crate%20Box.sh'
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o super-crate-box.zip -d ../
+chmod +x "Super Crate Box.sh"
+mv -f "Super Crate Box.sh" ../
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf super-crate-box.zip

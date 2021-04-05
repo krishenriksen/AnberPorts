@@ -1,0 +1,15 @@
+#!/bin/bash
+# Cave Story (Japanese: 洞窟物語, Hepburn: Dōkutsu Monogatari).
+# Release: 2004    Genre: Platform-adventure
+
+printf "\e[32mDownloading Cave-Story ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/cavestory.zip'
+wget -q -O "Cave Story.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Cave%20Story.sh'
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o cavestory.zip -d ../
+chmod +x "Cave Story.sh"
+mv -f "Cave Story.sh" ../
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf cavestory.zip

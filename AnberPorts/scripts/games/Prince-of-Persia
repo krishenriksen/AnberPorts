@@ -1,0 +1,15 @@
+#!/bin/bash
+# Video game franchise created by Jordan Mechner
+# Release: 1999    Genre: Side-scrolling platform
+
+printf "\e[32mDownloading Prince of Persia ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/sdlpop.zip'
+wget -q -O "Prince of Persia.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Prince%20of%20Persia.sh'
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o sdlpop.zip -d ../
+chmod +x "Prince of Persia.sh"
+mv -f "Prince of Persia.sh" ../
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf sdlpop.zip

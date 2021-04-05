@@ -1,0 +1,6 @@
+#!/bin/bash
+# Cloud Saves for Anbernic devices.
+# Release: 2021    Genre: System
+
+printf "\e[32mDownloading AnberCloud ..." > /dev/tty1
+wget -q -O ../AnberCloud.sh 'https://raw.githubusercontent.com/krishenriksen/AnberCloud/master/AnberCloud.sh'

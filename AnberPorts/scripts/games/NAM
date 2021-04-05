@@ -1,0 +1,19 @@
+#!/bin/bash
+# Game set during the Vietnam War, developed by TNT Team.
+# Release: 1998    Genre: First-person shooter
+
+printf "\e[32mDownloading NAM ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/nam.zip'
+wget -q -O "NAM.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/NAM.sh'
+
+printf "\e[32mPlease copy games files to your NAM directory! ..." > /dev/tty1
+unzip -qq -o nam.zip -d ../
+chmod +x "NAM.sh"
+mv -f "NAM.sh" ../
+
+mkdir -p ~/.config/rednukem
+mv ../NAM/rednukem.cfg ~/.config/rednukem/
+mv ../NAM/settings.cfg ~/.config/rednukem/
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf nam.zip

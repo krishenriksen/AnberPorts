@@ -1,0 +1,15 @@
+#!/bin/bash
+# The Enhanced OutRun Engine
+# Release: 1999    Genre: Racing
+
+printf "\e[32mDownloading CannonBall ..." > /dev/tty1
+wget -q 'https://media.githubusercontent.com/media/krishenriksen/AnberPorts/master/misc/cannonball.zip'
+wget -q -O "Cannonball.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Cannonball.sh'
+
+printf "\e[32mExtracting ..." > /dev/tty1
+unzip -qq -o cannonball.zip -d ../
+chmod +x "Cannonball.sh"
+mv -f "Cannonball.sh" ../
+
+printf "\e[32mCleaning Up ..." > /dev/tty1
+rm -rf cannonball.zip
