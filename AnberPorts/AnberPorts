@@ -41,7 +41,11 @@ Menu() {
   done
 
   choice=$("${selection[@]}" "${options[@]}" 2>&1 > /dev/tty1)
-  bash ./scripts/${1,,}/$choice
+  execute="./scripts/${1,,}/$choice"
+
+  if [[ -f $execute ]]; then
+    bash $execute
+  fi
 }
 
 ExitMenu() {

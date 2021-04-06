@@ -28,6 +28,7 @@ if id "ark" &>/dev/null || id "odroid" &>/dev/null; then
   sudo chmod 666 /dev/tty1
 fi
 
+export TERM=linux
 export XDG_RUNTIME_DIR=/run/user/$UID/
 
 printf "\033c" > /dev/tty1
