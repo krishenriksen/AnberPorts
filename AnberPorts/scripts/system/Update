@@ -13,3 +13,12 @@ unzip -qq -o ../AnberPorts.zip -d ../
 
 printf "\e[32mCleaning up ...\n" > /dev/tty1
 rm -rf ../AnberPorts.zip
+
+if id "ark" &>/dev/null || id "odroid" &>/dev/null; then
+  pgrep -f oga_controls | sudo xargs kill -9
+else
+  pgrep -f oga_controls | xargs kill -9
+fi
+
+pgrep -f AnberPorts | xargs kill -9
+pgrep -f AnberPortsSDL | xargs kill -9
