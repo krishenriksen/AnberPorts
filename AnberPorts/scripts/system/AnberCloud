@@ -5,3 +5,5 @@
 printf "\e[32mDownloading AnberCloud ..." > /dev/tty1
 wget -q -O "../AnberCloud Setup.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberCloud/master/AnberCloud%20Setup.sh'
 wget -q -O "../AnberCloud Sync.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberCloud/master/AnberCloud%20Sync.sh'
+
+chmod +x "../AnberCloud Setup.sh" "../AnberCloud Sync.sh"
