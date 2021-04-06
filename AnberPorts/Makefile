@@ -1,7 +1,7 @@
 CC = gcc
 CCFLAGS = -W -Wall
 
-BINARY = AnberPorts
+BINARY = AnberPortsSDL
 LIBRARIES = -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lGLESv1_CM
 SOURCES = "main.c"
 

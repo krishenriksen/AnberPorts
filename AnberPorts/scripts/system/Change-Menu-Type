@@ -1,0 +1,11 @@
+#!/bin/bash
+# Change AnberPorts between SDL and Dialog
+# Release: 2021    Genre: System
+
+if [[ `cat ./type.txt` == "sdl" ]]; then
+  echo dialog > ./type.txt
+else
+  echo sdl > ./type.txt
+fi
+
+pgrep -f AnberPorts | xargs kill -9

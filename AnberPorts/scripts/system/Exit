@@ -3,6 +3,7 @@
 # Release: 2021    Genre: System
 
 pgrep -f AnberPorts | xargs kill -9
+pgrep -f AnberPortsSDL | xargs kill -9
 
 if systemctl --all --type service | grep -q 'emustation'; then
   systemctl restart emustation

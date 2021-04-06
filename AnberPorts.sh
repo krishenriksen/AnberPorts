@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version=1.3.3
+version=1.3.4
 
 # Copyright (c) 2021
 #
@@ -27,6 +27,8 @@ version=1.3.3
 if id "ark" &>/dev/null || id "odroid" &>/dev/null; then
   sudo chmod 666 /dev/tty1
 fi
+
+export XDG_RUNTIME_DIR=/run/user/$UID/
 
 printf "\033c" > /dev/tty1
 
@@ -85,8 +87,13 @@ fi
 
 GAMEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/AnberPorts"
 
-export XDG_RUNTIME_DIR=/tmp/
-
 cd $GAMEDIR
 
-./AnberPorts "$update" 2>&1 | tee -a ./log.txt
+#
+# Menu type ( sdl or dialog )
+#
+if [[ `cat ./type.txt` == "sdl" ]]; then
+  ./AnberPortsSDL "$update" 2>&1 | tee -a ./log.txt
+else
+  bash ./AnberPorts "$version" "$update" 2>&1 | tee -a ./log.txt
+fi
