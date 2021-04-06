@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version=1.3.2
+version=1.3.3
 
 # Copyright (c) 2021
 #
@@ -42,6 +42,10 @@ if [ -z "$GW" ]; then
 fi
 
 if id "ark" &>/dev/null || id "odroid" &>/dev/null; then
+  if ! dpkg -s "zip" &> /dev/null ; then
+    install_dependencies="$install_dependencies zip"
+  fi
+
   if ! dpkg -s "unzip" &> /dev/null ; then
     install_dependencies="$install_dependencies unzip"
   fi
