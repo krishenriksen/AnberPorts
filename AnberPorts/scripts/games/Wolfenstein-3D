@@ -3,11 +3,22 @@
 # Release: 1992    Genre: First-person shooter
 
 printf "\e[32mDownloading Wolfenstein 3D ..." > /dev/tty1
+
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/wolfenstein3d.zip'
-wget -q -O "../Wolfenstein 3D.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Wolfenstein%203D.sh'
-wget -q -O "../Wolfenstein 3D - Spear of Destiny.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Wolfenstein%203D%20-%20Spear%20of%20Destiny.sh'
-wget -q -O "../Wolfenstein 3D - Spear of Destiny MP2.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Wolfenstein%203D%20-%20Spear%20of%20Destiny%20MP2.sh'
-wget -q -O "../Wolfenstein 3D - Spear of Destiny MP3.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Wolfenstein%203D%20-%20Spear%20of%20Destiny%20MP3.sh'
+if [[ $? -ne 0 ]]; then
+  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+
+  wget 'http://139.196.213.206/releases/anberports/misc/wolfenstein3d.zip'
+  wget -q -O "../Wolfenstein 3D.sh" 'http://139.196.213.206/releases/anberports/misc/Wolfenstein%203D.sh'
+  wget -q -O "../Wolfenstein 3D - Spear of Destiny.sh" 'http://139.196.213.206/releases/anberports/misc/Wolfenstein%203D%20-%20Spear%20of%20Destiny.sh'
+  wget -q -O "../Wolfenstein 3D - Spear of Destiny MP2.sh" 'http://139.196.213.206/releases/anberports/misc/Wolfenstein%203D%20-%20Spear%20of%20Destiny%20MP2.sh'
+  wget -q -O "../Wolfenstein 3D - Spear of Destiny MP3.sh" 'http://139.196.213.206/releases/anberports/misc/Wolfenstein%203D%20-%20Spear%20of%20Destiny%20MP3.sh'
+else
+  wget -q -O "../Wolfenstein 3D.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Wolfenstein%203D.sh'
+  wget -q -O "../Wolfenstein 3D - Spear of Destiny.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Wolfenstein%203D%20-%20Spear%20of%20Destiny.sh'
+  wget -q -O "../Wolfenstein 3D - Spear of Destiny MP2.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Wolfenstein%203D%20-%20Spear%20of%20Destiny%20MP2.sh'
+  wget -q -O "../Wolfenstein 3D - Spear of Destiny MP3.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Wolfenstein%203D%20-%20Spear%20of%20Destiny%20MP3.sh'
+fi
 
 printf "\e[32mPlease copy game files to your ecwolf directory! ..." > /dev/tty1
 unzip -qq -o wolfenstein3d.zip -d ../

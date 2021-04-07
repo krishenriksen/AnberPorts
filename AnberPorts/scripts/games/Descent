@@ -3,8 +3,16 @@
 # Release: 1995    Genre: First-person shooter
 
 printf "\e[32mDownloading Descent ..." > /dev/tty1
+
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/descent.zip'
-wget -q -O "../Descent.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Descent.sh'
+if [[ $? -ne 0 ]]; then
+  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+
+  wget 'http://139.196.213.206/releases/anberports/misc/descent.zip'
+  wget -q -O "../Descent.sh" 'http://139.196.213.206/releases/anberports/misc/Descent.sh'
+else
+  wget -q -O "../Descent.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Descent.sh'
+fi
 
 printf "\e[32mExtracting ..." > /dev/tty1
 unzip -qq -o descent.zip -d ../

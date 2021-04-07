@@ -3,8 +3,16 @@
 # Release: 2003    Genre: First- and third-person shooter
 
 printf "\e[32mDownloading Star Wars Jedi Knight: Jedi Academy ..." > /dev/tty1
+
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/jedi-academy.zip'
-wget -q -O "../Star Wars Jedi Knight - Jedi Academy.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Star%20Wars%20Jedi%20Knight%20-%20Jedi%20Academy.sh'
+if [[ $? -ne 0 ]]; then
+  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+
+  wget 'http://139.196.213.206/releases/anberports/misc/jedi-academy.zip'
+  wget -q -O "../Star Wars Jedi Knight - Jedi Academy.sh" 'http://139.196.213.206/releases/anberports/misc/Star%20Wars%20Jedi%20Knight%20-%20Jedi%20Academy.sh'
+else
+  wget -q -O "../Star Wars Jedi Knight - Jedi Academy.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Star%20Wars%20Jedi%20Knight%20-%20Jedi%20Academy.sh'
+fi
 
 printf "\e[32mPlease copy *.pk3 files to your JediAcademy/base directory! ..." > /dev/tty1
 unzip -qq -o jedi-academy.zip -d ../

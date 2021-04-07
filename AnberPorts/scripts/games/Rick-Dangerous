@@ -3,8 +3,16 @@
 # Release: 1989    Genre: Side-scrolling platform
 
 printf "\e[32mDownloading Rick Dangerous ..." > /dev/tty1
+
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/rick-dangerous.zip'
-wget -q -O "../Rick Dangerous.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Rick%20Dangerous.sh'
+if [[ $? -ne 0 ]]; then
+  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+
+  wget 'http://139.196.213.206/releases/anberports/misc/rick-dangerous.zip'
+  wget -q -O "../Rick Dangerous.sh" 'http://139.196.213.206/releases/anberports/misc/Rick%20Dangerous.sh'
+else
+  wget -q -O "../Rick Dangerous.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Rick%20Dangerous.sh'
+fi
 
 printf "\e[32mExtracting ..." > /dev/tty1
 unzip -qq -o rick-dangerous.zip -d ../
@@ -14,4 +22,3 @@ printf "\e[32mCleaning Up ..." > /dev/tty1
 rm -rf rick-dangerous.zip
 
 printf "\e[32mEnjoy! ..." > /dev/tty1
-sleep 3

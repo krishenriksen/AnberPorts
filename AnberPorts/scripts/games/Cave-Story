@@ -3,8 +3,16 @@
 # Release: 2004    Genre: Platform-adventure
 
 printf "\e[32mDownloading Cave-Story ..." > /dev/tty1
+
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/cavestory.zip'
-wget -q -O "../Cave Story.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Cave%20Story.sh'
+if [[ $? -ne 0 ]]; then
+  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+
+  wget 'http://139.196.213.206/releases/anberports/misc/cavestory.zip'
+  wget -q -O "../Cave Story.sh" 'http://139.196.213.206/releases/anberports/misc/Cave%20Story.sh'
+else
+  wget -q -O "../Cave Story.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Cave%20Story.sh'
+fi
 
 printf "\e[32mExtracting ..." > /dev/tty1
 unzip -qq -o cavestory.zip -d ../

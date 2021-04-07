@@ -3,8 +3,16 @@
 # Release: 2014    Genre: First-person shooter
 
 printf "\e[32mDownloading They Need To Be Fed ..." > /dev/tty1
+
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/they-need-to-be-fed.zip'
-wget -q -O "../They Need To Be Fed.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/They%20Need%20To%20Be%20Fed.sh'
+if [[ $? -ne 0 ]]; then
+  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+
+  wget 'http://139.196.213.206/releases/anberports/misc/they-need-to-be-fed.zip.zip'
+  wget -q -O "../They Need To Be Fed.sh" 'http://139.196.213.206/releases/anberports/misc/They%20Need%20To%20Be%20Fed.sh'
+else
+  wget -q -O "../They Need To Be Fed.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/They%20Need%20To%20Be%20Fed.sh'
+fi
 
 printf "\e[32mExtracting ..." > /dev/tty1
 unzip -qq -o they-need-to-be-fed.zip -d ../

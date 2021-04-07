@@ -3,8 +3,16 @@
 # Release: 1990    Genre: Side-scrolling platform
 
 printf "\e[32mDownloading Commander Keen ..." > /dev/tty1
+
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/keen.zip'
-wget -q -O "../Commander Genius.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Commander%20Genius.sh'
+if [[ $? -ne 0 ]]; then
+  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+
+  wget 'http://139.196.213.206/releases/anberports/misc/keen.zip'
+  wget -q -O "../Commander Genius.sh" 'http://139.196.213.206/releases/anberports/misc/Commander%20Genius.sh'
+else
+  wget -q -O "../Commander Genius.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Commander%20Genius.sh'
+fi
 
 printf "\e[32mPlease copy 'keen' folders to your cgenius/games directory! ..." > /dev/tty1
 unzip -qq -o keen.zip -d ../

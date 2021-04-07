@@ -3,8 +3,16 @@
 # Release: 1997    Genre: Role-playing hack-and-slash
 
 printf "\e[32mDownloading Diablo 1 ..." > /dev/tty1
+
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/diablo1.zip'
-wget -q -O "../Diablo 1.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Diablo%201.sh'
+if [[ $? -ne 0 ]]; then
+  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+
+  wget 'http://139.196.213.206/releases/anberports/misc/diablo1.zip'
+  wget -q -O "../Diablo 1.sh" 'http://139.196.213.206/releases/anberports/misc/Diablo%201.sh'
+else
+  wget -q -O "../Diablo 1.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Diablo%201.sh'
+fi
 
 printf "\e[32mExtracting ..." > /dev/tty1
 unzip -qq -o diablo1.zip -d ../

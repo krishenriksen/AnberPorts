@@ -3,8 +3,16 @@
 # Release: 2012    Genre: Arcade action
 
 printf "\e[32mDownloading Maldita Castilla ..." > /dev/tty1
+
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/maldita-castilla.zip'
-wget -q -O "../Maldita Castilla.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Maldita%20Castilla.sh'
+if [[ $? -ne 0 ]]; then
+  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+
+  wget 'http://139.196.213.206/releases/anberports/misc/maldita-castilla.zip'
+  wget -q -O "../Maldita Castilla.sh" 'http://139.196.213.206/releases/anberports/misc/Maldita%20Castilla.sh'
+else
+  wget -q -O "../Maldita Castilla.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Maldita%20Castilla.sh'
+fi
 
 printf "\e[32mExtracting ..." > /dev/tty1
 unzip -qq -o maldita-castilla.zip -d ../

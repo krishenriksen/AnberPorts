@@ -3,8 +3,16 @@
 # Release: 1998    Genre: First-person shooter
 
 printf "\e[32mDownloading Redneck Rampage Rides Again ..." > /dev/tty1
+
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/redneck-rampage-rides-again.zip'
-wget -q -O "../Redneck Rampage Rides Again.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Redneck%20Rampage%20Rides%20Again.sh'
+if [[ $? -ne 0 ]]; then
+  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+
+  wget 'http://139.196.213.206/releases/anberports/misc/redneck-rampage-rides-again.zip'
+  wget -q -O "../Redneck Rampage Rides Again.sh" 'http://139.196.213.206/releases/anberports/misc/Redneck%20Rampage%20Rides%20Again.sh'
+else
+  wget -q -O "../Redneck Rampage Rides Again.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Redneck%20Rampage%20Rides%20Again.sh'
+fi
 
 printf "\e[32mPlease copy game files to your Redneck Rampage Rides Again directory! ..." > /dev/tty1
 unzip -qq -o redneck-rampage-rides-again.zip -d ../

@@ -3,8 +3,16 @@
 # Release: 1997    Genre: First-person shooter
 
 printf "\e[32mDownloading Blood ..." > /dev/tty1
+
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/blood.zip'
-wget -q -O "../Blood.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Blood.sh'
+if [[ $? -ne 0 ]]; then
+  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+
+  wget 'http://139.196.213.206/releases/anberports/misc/blood.zip'
+  wget -q -O "../Blood.sh" 'http://139.196.213.206/releases/anberports/misc/Blood.sh'
+else
+  wget -q -O "../Blood.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Blood.sh'
+fi
 
 printf "\e[32mPlease copy games files to your Blood directory! ..." > /dev/tty1
 unzip -qq -o blood.zip -d ../

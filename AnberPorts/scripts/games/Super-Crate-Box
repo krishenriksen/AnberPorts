@@ -3,8 +3,16 @@
 # Release: 2010    Genre: First-person shooter
 
 printf "\e[32mDownloading Super Crate Box ..." > /dev/tty1
+
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/super-crate-box.zip'
-wget -q -O "../Super Crate Box.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Super%20Crate%20Box.sh'
+if [[ $? -ne 0 ]]; then
+  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+
+  wget 'http://139.196.213.206/releases/anberports/misc/super-crate-box.zip'
+  wget -q -O "../Super Crate Box.sh" 'http://139.196.213.206/releases/anberports/misc/Super%20Crate%20Box.sh'
+else
+  wget -q -O "../Super Crate Box.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Super%20Crate%20Box.sh'
+fi
 
 printf "\e[32mExtracting ..." > /dev/tty1
 unzip -qq -o super-crate-box.zip -d ../

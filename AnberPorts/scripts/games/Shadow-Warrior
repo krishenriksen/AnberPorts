@@ -3,8 +3,16 @@
 # Release: 1997    Genre: First-person shooter
 
 printf "\e[32mDownloading Shadow Warrior ..." > /dev/tty1
+
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/shadow-warrior.zip'
-wget -q -O "../Shadow Warrior.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Shadow%20Warrior.sh'
+if [[ $? -ne 0 ]]; then
+  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+
+  wget 'http://139.196.213.206/releases/anberports/misc/shadow-warrior.zip'
+  wget -q -O "../Shadow Warrior.sh" 'http://139.196.213.206/releases/anberports/misc/Shadow%20Warrior.sh'
+else
+  wget -q -O "../Shadow Warrior.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Shadow%20Warrior.sh'
+fi
 
 printf "\e[32mPlease copy game files to your shadow-warrior directory! ..." > /dev/tty1
 unzip -qq -o shadow-warrior.zip -d ../

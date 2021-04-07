@@ -3,8 +3,16 @@
 # Release: 1994    Genre: First-person shooter
 
 printf "\e[32mDownloading Doom 2 ..." > /dev/tty1
+
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/doom2.zip'
-wget -q -O "../Doom 2.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Doom%202.sh'
+if [[ $? -ne 0 ]]; then
+  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+
+  wget 'http://139.196.213.206/releases/anberports/misc/doom2.zip'
+  wget -q -O "../Doom 2.sh" 'http://139.196.213.206/releases/anberports/misc/Doom%202.sh'
+else
+  wget -q -O "../Doom 2.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Doom%202.sh'
+fi
 
 printf "\e[32mPlease copy 'Doom2.wad' to your doom2 directory! ..." > /dev/tty1
 unzip -qq -o doom2.zip -d ../

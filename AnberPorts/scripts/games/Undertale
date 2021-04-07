@@ -3,8 +3,16 @@
 # Release: 2015    Genre: First-person shooter
 
 printf "\e[32mDownloading Undertale ..." > /dev/tty1
+
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/undertale.zip'
-wget -q -O "../Undertale.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Undertale.sh'
+if [[ $? -ne 0 ]]; then
+  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+
+  wget 'http://139.196.213.206/releases/anberports/misc/undertale.zip'
+  wget -q -O "../Undertale.sh" 'http://139.196.213.206/releases/anberports/misc/Undertale.sh'
+else
+  wget -q -O "../Undertale.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Undertale.sh'
+fi
 
 printf "\e[32mPlease copy game files to your undertale directory! ..." > /dev/tty1
 unzip -qq -o undertale.zip -d ../

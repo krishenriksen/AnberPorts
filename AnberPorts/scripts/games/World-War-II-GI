@@ -3,8 +3,16 @@
 # Release: 1999    Genre: First-person shooter
 
 printf "\e[32mDownloading World War II GI ..." > /dev/tty1
-wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/world-war-ii-gi.zip'
-wget -q -O "../World War II GI.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/World%20War%20II%20GI.sh'
+
+wget 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/world-war-ii-gi.zip'
+if [[ $? -ne 0 ]]; then
+  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+
+  wget 'http://139.196.213.206/releases/anberports/misc/world-war-ii-gi.zip'
+  wget -q -O "../World War II GI.sh" 'http://139.196.213.206/releases/anberports/misc/World%20War%20II%20GI.sh'
+else
+  wget -q -O "../World War II GI.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/World%20War%20II%20GI.sh'
+fi
 
 printf "\e[32mPlease copy game files to your World War II GI directory! ..." > /dev/tty1
 unzip -qq -o world-war-ii-gi.zip -d ../
