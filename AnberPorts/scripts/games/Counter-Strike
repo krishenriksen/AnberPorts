@@ -4,12 +4,11 @@
 
 printf "\e[32mDownloading Counter-Strike ..." > /dev/tty1
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/half-life.zip'
-wget -q -O "Counter-Strike.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Counter-Strike.sh'
+wget -q -O "../Counter-Strike.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Counter-Strike.sh'
 
 printf "\e[32mExtracting ..." > /dev/tty1
 unzip -qq -o half-life.zip -d ../
-chmod +x "Counter-Strike.sh"
-mv -f "Counter-Strike.sh" ../
+chmod +x "../Counter-Strike.sh"
 
 printf "\e[32mCleaning Up ..." > /dev/tty1
 rm -rf half-life.zip

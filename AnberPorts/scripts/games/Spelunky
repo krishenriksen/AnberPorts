@@ -4,12 +4,11 @@
 
 printf "\e[32mDownloading Spelunky ..." > /dev/tty1
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/spelunky.zip'
-wget -q -O "Spelunky.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Spelunky.sh'
+wget -q -O "../Spelunky.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Spelunky.sh'
 
 printf "\e[32mExtracting ..." > /dev/tty1
 unzip -qq -o spelunky.zip -d ../
-chmod +x "Spelunky.sh"
-mv -f "Spelunky.sh" ../
+chmod +x "../Spelunky.sh"
 
 cp -r ../spelunky/SpelunkyClassicHD ~/.config/
 

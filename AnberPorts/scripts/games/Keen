@@ -4,12 +4,11 @@
 
 printf "\e[32mDownloading Commander Keen ..." > /dev/tty1
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/keen.zip'
-wget -q -O "Commander Genius.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Commander%20Genius.sh'
+wget -q -O "../Commander Genius.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Commander%20Genius.sh'
 
 printf "\e[32mPlease copy 'keen' folders to your cgenius/games directory! ..." > /dev/tty1
 unzip -qq -o keen.zip -d ../
-chmod +x "Commander Genius.sh"
-mv -f "Commander Genius.sh" ../
+chmod +x "../Commander Genius.sh"
 
 printf "\e[32mCleaning Up ..." > /dev/tty1
 rm -rf keen.zip

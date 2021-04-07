@@ -4,12 +4,11 @@
 
 printf "\e[32mDownloading System Shock ..." > /dev/tty1
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/system-shock.zip'
-wget -q -O "System Shock.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/System%20Shock.sh'
+wget -q -O "../System Shock.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/System%20Shock.sh'
 
 printf "\e[32mPlease copy game 'data' folder to your system-shock/res directory! ..." > /dev/tty1
 unzip -qq -o system-shock.zip -d ../
-chmod +x "System Shock.sh"
-mv -f "System Shock.sh" ../
+chmod +x "../System Shock.sh"
 
 printf "\e[32mCleaning Up ..." > /dev/tty1
 rm -rf system-shock.zip

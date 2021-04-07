@@ -4,12 +4,11 @@
 
 printf "\e[32mDownloading Quake 3 ..." > /dev/tty1
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/quake3.zip'
-wget -q -O "Quake 3.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Quake%203.sh'
+wget -q -O "../Quake 3.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Quake%203.sh'
 
 printf "\e[32mPlease copy '*.pk3' to your quake3/baseq3 directory! ..." > /dev/tty1
 unzip -qq -o quake3.zip -d ../
-chmod +x "Quake 3.sh"
-mv -f "Quake 3.sh" ../
+chmod +x "../Quake 3.sh"
 
 printf "\e[32mCleaning up ..." > /dev/tty1
 rm -rf quake3.zip

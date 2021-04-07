@@ -4,12 +4,11 @@
 
 printf "\e[32mDownloading NAM ..." > /dev/tty1
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/nam.zip'
-wget -q -O "NAM.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/NAM.sh'
+wget -q -O "../NAM.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/NAM.sh'
 
 printf "\e[32mPlease copy games files to your NAM directory! ..." > /dev/tty1
 unzip -qq -o nam.zip -d ../
-chmod +x "NAM.sh"
-mv -f "NAM.sh" ../
+chmod +x "../NAM.sh"
 
 mkdir -p ~/.config/rednukem
 mv ../NAM/rednukem.cfg ~/.config/rednukem/

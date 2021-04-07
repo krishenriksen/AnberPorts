@@ -4,12 +4,11 @@
 
 printf "\e[32mDownloading Sonic Robo Blast 2 ..." > /dev/tty1
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/sonic-robo-blast-2.zip'
-wget -q -O "Sonic Robo Blast 2.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Sonic%20Robo%20Blast%202.sh'
+wget -q -O "../Sonic Robo Blast 2.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Sonic%20Robo%20Blast%202.sh'
 
 printf "\e[32mPlease copy games files to your Sonic Robo Blast 2 directory! ..." > /dev/tty1
 unzip -qq -o sonic-robo-blast-2.zip -d ../
-chmod +x "Sonic Robo Blast 2.sh"
-mv -f "Sonic Robo Blast 2.sh" ../
+chmod +x "../Sonic Robo Blast 2.sh"
 
 printf "\e[32mCleaning Up ..." > /dev/tty1
 rm -rf sonic-robo-blast-2.zip

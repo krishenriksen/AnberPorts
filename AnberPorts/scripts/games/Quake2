@@ -4,12 +4,11 @@
 
 printf "\e[32mDownloading Quake 2 ..." > /dev/tty1
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/quake2.zip'
-wget -q -O "Quake 2.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Quake%202.sh'
+wget -q -O "../Quake 2.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Quake%202.sh'
 
 printf "\e[32mPlease copy '*.pak' to your quake2/baseq2 directory! ..." > /dev/tty1
 unzip -qq -o quake2.zip -d ../
-chmod +x "Quake 2.sh"
-mv -f "Quake 2.sh" ../
+chmod +x "../Quake 2.sh"
 
 if [ ! -d "~/.yq2" ]; then
   mkdir ~/.yq2

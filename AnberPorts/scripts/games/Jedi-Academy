@@ -3,13 +3,12 @@
 # Release: 2003    Genre: First- and third-person shooter
 
 printf "\e[32mDownloading Star Wars Jedi Knight: Jedi Academy ..." > /dev/tty1
-wget -q 'https://github.com/krishenriksen/OpenJK/releases/download/1.0.0/jediacademy.zip'
-wget -q -O "Star Wars Jedi Knight - Jedi Academy.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Star%20Wars%20Jedi%20Knight%20-%20Jedi%20Academy.sh'
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/jedi-academy.zip'
+wget -q -O "../Star Wars Jedi Knight - Jedi Academy.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Star%20Wars%20Jedi%20Knight%20-%20Jedi%20Academy.sh'
 
 printf "\e[32mPlease copy *.pk3 files to your JediAcademy/base directory! ..." > /dev/tty1
-unzip -qq -o jediacademy.zip -d ../
-chmod +x "Star Wars Jedi Knight - Jedi Academy.sh"
-mv -f "Star Wars Jedi Knight - Jedi Academy.sh" ../
+unzip -qq -o jedi-academy.zip -d ../
+chmod +x "../Star Wars Jedi Knight - Jedi Academy.sh"
 
 printf "\e[32mCleaning Up ..." > /dev/tty1
-rm -rf jediacademy.zip
+rm -rf jedi-academy.zip

@@ -4,12 +4,11 @@
 
 printf "\e[32mDownloading They Need To Be Fed ..." > /dev/tty1
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/they-need-to-be-fed.zip'
-wget -q -O "They Need To Be Fed.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/They%20Need%20To%20Be%20Fed.sh'
+wget -q -O "../They Need To Be Fed.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/They%20Need%20To%20Be%20Fed.sh'
 
 printf "\e[32mExtracting ..." > /dev/tty1
 unzip -qq -o they-need-to-be-fed.zip -d ../
-chmod +x "They Need To Be Fed.sh"
-mv -f "They Need To Be Fed.sh" ../
+chmod +x "../They Need To Be Fed.sh"
 
 printf "\e[32mCleaning Up ..." > /dev/tty1
 rm -rf they-need-to-be-fed.zip

@@ -4,12 +4,11 @@
 
 printf "\e[32mDownloading Redneck Rampage Rides Again ..." > /dev/tty1
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/redneck-rampage-rides-again.zip'
-wget -q -O "Redneck Rampage Rides Again.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Redneck%20Rampage%20Rides%20Again.sh'
+wget -q -O "../Redneck Rampage Rides Again.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Redneck%20Rampage%20Rides%20Again.sh'
 
 printf "\e[32mPlease copy game files to your Redneck Rampage Rides Again directory! ..." > /dev/tty1
 unzip -qq -o redneck-rampage-rides-again.zip -d ../
-chmod +x "Redneck Rampage Rides Again.sh"
-mv -f "Redneck Rampage Rides Again.sh" ../
+chmod +x "../Redneck Rampage Rides Again.sh"
 
 mkdir -p ~/.config/rednukem
 mv "../Redneck Rampage Rides Again/rednukem.cfg" ~/.config/rednukem/

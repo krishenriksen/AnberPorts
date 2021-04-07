@@ -4,12 +4,11 @@
 
 printf "\e[32mDownloading AM2R ..." > /dev/tty1
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/am2r.zip'
-wget -q -O "AM2R.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/AM2R.sh'
+wget -q -O "../AM2R.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/AM2R.sh'
 
 printf "\e[32mExtracting ..." > /dev/tty1
 unzip -qq -o am2r.zip -d ../
-chmod +x "AM2R.sh"
-mv -f "AM2R.sh" ../
+chmod +x "../AM2R.sh"
 
 printf "\e[32mCleaning Up ..." > /dev/tty1
 rm -rf am2r.zip

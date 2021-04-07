@@ -4,12 +4,11 @@
 
 printf "\e[32mDownloading Undertale ..." > /dev/tty1
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/undertale.zip'
-wget -q -O "Undertale.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Undertale.sh'
+wget -q -O "../Undertale.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Undertale.sh'
 
 printf "\e[32mPlease copy game files to your undertale directory! ..." > /dev/tty1
 unzip -qq -o undertale.zip -d ../
-chmod +x "Undertale.sh"
-mv -f "Undertale.sh" ../
+chmod +x "../Undertale.sh"
 
 printf "\e[32mCleaning Up ..." > /dev/tty1
 rm -rf undertale.zip
