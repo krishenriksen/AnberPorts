@@ -2,11 +2,11 @@
 # Players assume the role of a space marine.
 # Release: 1993    Genre: First-person shooter
 
-printf "\e[32mDownloading Doom 1 ..." > /dev/tty1
+printf "\e[32mDownloading Doom 1 ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/doom1.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/doom1.zip'
   wget -q -O "../Doom.sh" 'http://139.196.213.206/releases/anberports/misc/Doom.sh'
@@ -14,11 +14,11 @@ else
   wget -q -O "../Doom.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Doom.sh'
 fi
 
-printf "\e[32mExtracting ..." > /dev/tty1
+printf "\e[32mExtracting ...\n" > /dev/tty1
 unzip -qq -o doom1.zip -d ../
 chmod +x "../Doom.sh"
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf doom1.zip
 
-printf "\e[32mPlease copy 'Doom.wad' to your doom1 directory! ..." > /dev/tty1
+printf "\e[32mPlease copy 'Doom.wad' to your doom1 directory! ...\n" > /dev/tty1

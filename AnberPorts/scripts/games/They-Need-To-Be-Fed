@@ -2,11 +2,11 @@
 # Fun, casual, challenging platformer game.
 # Release: 2014    Genre: First-person shooter
 
-printf "\e[32mDownloading They Need To Be Fed ..." > /dev/tty1
+printf "\e[32mDownloading They Need To Be Fed ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/they-need-to-be-fed.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/they-need-to-be-fed.zip.zip'
   wget -q -O "../They Need To Be Fed.sh" 'http://139.196.213.206/releases/anberports/misc/They%20Need%20To%20Be%20Fed.sh'
@@ -14,9 +14,9 @@ else
   wget -q -O "../They Need To Be Fed.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/They%20Need%20To%20Be%20Fed.sh'
 fi
 
-printf "\e[32mExtracting ..." > /dev/tty1
+printf "\e[32mExtracting ...\n" > /dev/tty1
 unzip -qq -o they-need-to-be-fed.zip -d ../
 chmod +x "../They Need To Be Fed.sh"
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf they-need-to-be-fed.zip

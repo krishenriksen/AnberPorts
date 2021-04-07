@@ -2,11 +2,11 @@
 # Action-adventure game developed by Argentinian programmer Milton Guasti
 # Release: 1999    Genre: Action-adventure
 
-printf "\e[32mDownloading AM2R ..." > /dev/tty1
+printf "\e[32mDownloading AM2R ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/am2r.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/am2r.zip'
   wget -q -O "../AM2R.sh" 'http://139.196.213.206/releases/anberports/misc/AM2R.sh'
@@ -14,9 +14,9 @@ else
   wget -q -O "../AM2R.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/AM2R.sh'
 fi
 
-printf "\e[32mExtracting ..." > /dev/tty1
+printf "\e[32mExtracting ...\n" > /dev/tty1
 unzip -qq -o am2r.zip -d ../
 chmod +x "../AM2R.sh"
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf am2r.zip

@@ -2,11 +2,11 @@
 # Features the adventures of the titular Duke Nukem.
 # Release: 1996    Genre: First-person shooter
 
-printf "\e[32mDownloading Eduke32 ..." > /dev/tty1
+printf "\e[32mDownloading Eduke32 ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/eduke32.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/eduke32.zip'
   wget -q -O "../Duke Nukem 3D.sh" 'http://139.196.213.206/releases/anberports/misc/Duke%20Nukem%203D.sh'
@@ -14,12 +14,12 @@ else
   wget -q -O "../Duke Nukem 3D.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Duke%20Nukem%203D.sh'
 fi
 
-printf "\e[32mPlease copy 'DUKE3D.GRP' to your eduke32 directory! ..." > /dev/tty1
+printf "\e[32mPlease copy 'DUKE3D.GRP' to your eduke32 directory! ...\n" > /dev/tty1
 unzip -qq -o eduke32.zip -d ../
 chmod +x "../Duke Nukem 3D.sh"
 
 mkdir -p ~/.config/eduke32
 cp -rf ../eduke32/eduke32.cfg ~/.config/eduke32/
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf eduke32.zip

@@ -2,11 +2,11 @@
 # Focuses on the exploits of Lo Wang, a modern ninja warrior.
 # Release: 1997    Genre: First-person shooter
 
-printf "\e[32mDownloading Shadow Warrior ..." > /dev/tty1
+printf "\e[32mDownloading Shadow Warrior ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/shadow-warrior.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/shadow-warrior.zip'
   wget -q -O "../Shadow Warrior.sh" 'http://139.196.213.206/releases/anberports/misc/Shadow%20Warrior.sh'
@@ -14,12 +14,12 @@ else
   wget -q -O "../Shadow Warrior.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Shadow%20Warrior.sh'
 fi
 
-printf "\e[32mPlease copy game files to your shadow-warrior directory! ..." > /dev/tty1
+printf "\e[32mPlease copy game files to your shadow-warrior directory! ...\n" > /dev/tty1
 unzip -qq -o shadow-warrior.zip -d ../
 chmod +x "../Shadow Warrior.sh"
 
 mkdir -p ~/.jfsw
 mv ../shadow-warrior/sw.cfg ~/.jfsw/
 
-printf "\e[32mCleaning up ..." > /dev/tty1
+printf "\e[32mCleaning up ...\n" > /dev/tty1
 rm -rf shadow-warrior.zip

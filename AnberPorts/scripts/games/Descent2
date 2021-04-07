@@ -2,11 +2,11 @@
 # Developed by Parallax Software.
 # Release: 1996    Genre: First-person shooter
 
-printf "\e[32mDownloading Descent 2 ..." > /dev/tty1
+printf "\e[32mDownloading Descent 2 ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/descent2.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/descent2.zip'
   wget -q -O "../Descent 2.sh" 'http://139.196.213.206/releases/anberports/misc/Descent%202.sh'
@@ -14,9 +14,9 @@ else
   wget -q -O "../Descent 2.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Descent%202.sh'
 fi
 
-printf "\e[32mExtracting ..." > /dev/tty1
+printf "\e[32mExtracting ...\n" > /dev/tty1
 unzip -qq -o descent2.zip -d ../
 chmod +x "../Descent 2.sh"
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf descent2.zip

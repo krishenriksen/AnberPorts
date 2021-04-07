@@ -2,11 +2,11 @@
 # Open-source Sonic the Hedgehog fangame.
 # Release: 1999    Genre: First-person shooter
 
-printf "\e[32mDownloading Sonic Robo Blast 2 ..." > /dev/tty1
+printf "\e[32mDownloading Sonic Robo Blast 2 ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/sonic-robo-blast-2.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/sonic-robo-blast-2.zip'
   wget -q -O "../Sonic Robo Blast 2.sh" 'http://139.196.213.206/releases/anberports/misc/Sonic%20Robo%20Blast%202.sh'
@@ -14,9 +14,9 @@ else
   wget -q -O "../Sonic Robo Blast 2.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Sonic%20Robo%20Blast%202.sh'
 fi
 
-printf "\e[32mPlease copy games files to your Sonic Robo Blast 2 directory! ..." > /dev/tty1
+printf "\e[32mPlease copy games files to your Sonic Robo Blast 2 directory! ...\n" > /dev/tty1
 unzip -qq -o sonic-robo-blast-2.zip -d ../
 chmod +x "../Sonic Robo Blast 2.sh"
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf sonic-robo-blast-2.zip

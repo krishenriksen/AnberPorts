@@ -2,11 +2,11 @@
 # Classic styled kart racer, complete with beautiful courses, and wacky items.
 # Release: 2018    Genre: First-person shooter
 
-printf "\e[32mDownloading Sonic Robo Blast 2 Kart ..." > /dev/tty1
+printf "\e[32mDownloading Sonic Robo Blast 2 Kart ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/sonic-robo-blast-2-kart.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/sonic-robo-blast-2-kart.zip'
   wget -q 'http://139.196.213.206/releases/anberports/misc/sonic-robo-blast-2-kart.z01'
@@ -20,11 +20,11 @@ fi
 
 chmod +x "../Sonic Robo Blast 2 Kart.sh"
 
-printf "\e[32mExtracting ..." > /dev/tty1
+printf "\e[32mExtracting ...\n" > /dev/tty1
 zip -F sonic-robo-blast-2-kart.zip --out single-archive.zip
 unzip -qq -o single-archive.zip -d ../
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf sonic-robo-blast-2-kart.zip
 rm -rf sonic-robo-blast-2-kart.z01
 rm -rf sonic-robo-blast-2-kart.z02

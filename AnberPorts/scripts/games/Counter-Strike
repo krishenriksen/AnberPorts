@@ -2,11 +2,11 @@
 # Teams of terrorists battle to perpetrate an act of terror.
 # Release: 1999    Genre: Multiplayer first-person shooter
 
-printf "\e[32mDownloading Counter-Strike ..." > /dev/tty1
+printf "\e[32mDownloading Counter-Strike ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/half-life.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/half-life.zip'
   wget -q -O "../Counter-Strike.sh" 'http://139.196.213.206/releases/anberports/misc/Counter-Strike.sh'
@@ -14,9 +14,9 @@ else
   wget -q -O "../Counter-Strike.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Counter-Strike.sh'
 fi
 
-printf "\e[32mExtracting ..." > /dev/tty1
+printf "\e[32mExtracting ...\n" > /dev/tty1
 unzip -qq -o half-life.zip -d ../
 chmod +x "../Counter-Strike.sh"
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf half-life.zip

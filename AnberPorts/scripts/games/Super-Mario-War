@@ -2,11 +2,11 @@
 # Ppen-source, cross-platform, platform-adventure video game
 # Release: 2008    Genre: Platform-adventure
 
-printf "\e[32mDownloading Super Mario War ..." > /dev/tty1
+printf "\e[32mDownloading Super Mario War ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/super-mario-war.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/super-mario-war.zip'
   wget -q -O "../Super Mario War.sh" 'http://139.196.213.206/releases/anberports/misc/Super%20Mario%20War.sh'
@@ -16,11 +16,11 @@ fi
 
 chmod +x "../Super Mario War.sh"
 
-printf "\e[32mExtracting ..." > /dev/tty1
+printf "\e[32mExtracting ...\n" > /dev/tty1
 unzip -qq -o super-mario-war.zip -d ../
 
 mkdir -p ~/.smw
 cp -r ../smw-netplay/home-.smw/* ~/.smw/
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf super-mario-war.zip

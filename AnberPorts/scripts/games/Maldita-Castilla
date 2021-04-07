@@ -2,11 +2,11 @@
 # Maldita Castilla, known in North America and PAL regions.
 # Release: 2012    Genre: Arcade action
 
-printf "\e[32mDownloading Maldita Castilla ..." > /dev/tty1
+printf "\e[32mDownloading Maldita Castilla ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/maldita-castilla.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/maldita-castilla.zip'
   wget -q -O "../Maldita Castilla.sh" 'http://139.196.213.206/releases/anberports/misc/Maldita%20Castilla.sh'
@@ -14,9 +14,9 @@ else
   wget -q -O "../Maldita Castilla.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Maldita%20Castilla.sh'
 fi
 
-printf "\e[32mExtracting ..." > /dev/tty1
+printf "\e[32mExtracting ...\n" > /dev/tty1
 unzip -qq -o maldita-castilla.zip -d ../
 chmod +x "../Maldita Castilla.sh"
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf maldita-castilla.zip

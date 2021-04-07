@@ -2,11 +2,11 @@
 # Beneath the town of Tristram, the player journeys.
 # Release: 1997    Genre: Role-playing hack-and-slash
 
-printf "\e[32mDownloading Diablo 1 ..." > /dev/tty1
+printf "\e[32mDownloading Diablo 1 ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/diablo1.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/diablo1.zip'
   wget -q -O "../Diablo 1.sh" 'http://139.196.213.206/releases/anberports/misc/Diablo%201.sh'
@@ -14,11 +14,11 @@ else
   wget -q -O "../Diablo 1.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Diablo%201.sh'
 fi
 
-printf "\e[32mExtracting ..." > /dev/tty1
+printf "\e[32mExtracting ...\n" > /dev/tty1
 unzip -qq -o diablo1.zip -d ../
 chmod +x "../Diablo 1.sh"
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf diablo1.zip
 
-printf "\e[32mPlease copy 'diabdat.mpq' to your diablo1 directory! ..." > /dev/tty1
+printf "\e[32mPlease copy 'diabdat.mpq' to your diablo1 directory! ...\n" > /dev/tty1

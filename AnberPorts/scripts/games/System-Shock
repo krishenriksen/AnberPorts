@@ -2,11 +2,11 @@
 # The game is set aboard a space station in a cyberpunk vision.
 # Release: 1994    Genre: First-person shooter
 
-printf "\e[32mDownloading System Shock ..." > /dev/tty1
+printf "\e[32mDownloading System Shock ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/system-shock.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/system-shock.zip'
   wget -q -O "../System Shock.sh" 'http://139.196.213.206/releases/anberports/misc/System%20Shock.sh'
@@ -14,9 +14,9 @@ else
   wget -q -O "../System Shock.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/System%20Shock.sh'
 fi
 
-printf "\e[32mPlease copy game 'data' folder to your system-shock/res directory! ..." > /dev/tty1
+printf "\e[32mPlease copy game 'data' folder to your system-shock/res directory! ...\n" > /dev/tty1
 unzip -qq -o system-shock.zip -d ../
 chmod +x "../System Shock.sh"
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf system-shock.zip

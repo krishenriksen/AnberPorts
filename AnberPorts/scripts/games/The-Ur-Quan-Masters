@@ -2,11 +2,11 @@
 # The Ur-Quan Masters is the sequel to Star Control.
 # Release: 1992    Genre: First-person shooter
 
-printf "\e[32mDownloading The Ur-Quan Masters ..." > /dev/tty1
+printf "\e[32mDownloading The Ur-Quan Masters ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/uqm.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/uqm.zip'
   wget -q -O "../The Ur-Quan Masters.sh" 'http://139.196.213.206/releases/anberports/misc/The%20Ur-Quan%20Masters.sh'
@@ -14,9 +14,9 @@ else
   wget -q -O "../The Ur-Quan Masters.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/The%20Ur-Quan%20Masters.sh'
 fi
 
-printf "\e[32mPlease copy games files to your The Ur-Quan Masters directory! ..." > /dev/tty1
+printf "\e[32mPlease copy games files to your The Ur-Quan Masters directory! ...\n" > /dev/tty1
 unzip -qq -o uqm.zip -d ../
 chmod +x "../The Ur-Quan Masters.sh"
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf uqm.zip

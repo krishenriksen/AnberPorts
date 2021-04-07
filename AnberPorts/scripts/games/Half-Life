@@ -2,11 +2,11 @@
 # The game combine shooting combat, puzzles, and storytelling.
 # Release: 1998    Genre: First-person shooter
 
-printf "\e[32mDownloading Half-Life ..." > /dev/tty1
+printf "\e[32mDownloading Half-Life ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/half-life.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/half-life.zip'
   wget -q -O "../Half-Life.sh" 'http://139.196.213.206/releases/anberports/misc/Half-Life.sh'
@@ -14,9 +14,9 @@ else
   wget -q -O "../Half-Life.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Half-Life.sh'
 fi
 
-printf "\e[32mExtracting ..." > /dev/tty1
+printf "\e[32mExtracting ...\n" > /dev/tty1
 unzip -qq -o half-life.zip -d ../
 chmod +x "../Half-Life.sh"
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf half-life.zip

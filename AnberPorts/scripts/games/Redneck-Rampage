@@ -2,11 +2,11 @@
 # The game is a first person shooter with a variety of weapons.
 # Release: 1997    Genre: First-person shooter game
 
-printf "\e[32mDownloading Redneck Rampage ..." > /dev/tty1
+printf "\e[32mDownloading Redneck Rampage ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/redneck-rampage.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/redneck-rampage.zip'
   wget -q -O "../Redneck Rampage.sh" 'http://139.196.213.206/releases/anberports/misc/Redneck%20Rampage.sh'
@@ -14,7 +14,7 @@ else
   wget -q -O "../Redneck Rampage.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Redneck%20Rampage.sh'
 fi
 
-printf "\e[32mPlease copy game files to your Redneck Rampage directory! ..." > /dev/tty1
+printf "\e[32mPlease copy game files to your Redneck Rampage directory! ...\n" > /dev/tty1
 unzip -qq -o redneck-rampage.zip -d ../
 chmod +x "../Redneck Rampage.sh"
 
@@ -22,5 +22,5 @@ mkdir -p ~/.config/rednukem
 mv "../Redneck Rampage/rednukem.cfg" ~/.config/rednukem/
 mv "../Redneck Rampage/settings.cfg" ~/.config/rednukem/
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf redneck-rampage.zip

@@ -2,11 +2,11 @@
 # Digger is a video game released by Canadian developer Windmill.
 # Release: 1983    Genre: Platform
 
-printf "\e[32mDownloading Digger ..." > /dev/tty1
+printf "\e[32mDownloading Digger ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/digger.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/digger.zip'
   wget -q -O "../Digger.sh" 'http://139.196.213.206/releases/anberports/misc/Digger.sh'
@@ -16,8 +16,8 @@ fi
 
 chmod +x "../Digger.sh"
 
-printf "\e[32mExtracting ..." > /dev/tty1
+printf "\e[32mExtracting ...\n" > /dev/tty1
 unzip -qq -o digger.zip -d ../
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf digger.zip

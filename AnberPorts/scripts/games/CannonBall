@@ -2,11 +2,11 @@
 # The Enhanced OutRun Engine
 # Release: 1999    Genre: Racing
 
-printf "\e[32mDownloading CannonBall ..." > /dev/tty1
+printf "\e[32mDownloading CannonBall ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/cannonball.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/cannonball.zip'
   wget -q -O "../Cannonball.sh" 'http://139.196.213.206/releases/anberports/misc/Cannonball.sh'
@@ -14,9 +14,9 @@ else
   wget -q -O "../Cannonball.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Cannonball.sh'
 fi
 
-printf "\e[32mExtracting ..." > /dev/tty1
+printf "\e[32mExtracting ...\n" > /dev/tty1
 unzip -qq -o cannonball.zip -d ../
 chmod +x "../Cannonball.sh"
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf cannonball.zip

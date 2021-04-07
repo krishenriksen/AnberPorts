@@ -2,11 +2,11 @@
 # PowerSlave, known as Exhumed in Europe.
 # Release: 1996    Genre: First-person shooter
 
-printf "\e[32mDownloading Exhumed / PowerSlave ..." > /dev/tty1
+printf "\e[32mDownloading Exhumed / PowerSlave ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/exhumed.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/exhumed.zip'
   wget -q -O "../Exhumed.sh" 'http://139.196.213.206/releases/anberports/misc/Exhumed.sh'
@@ -14,7 +14,7 @@ else
   wget -q -O "../Exhumed.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Exhumed.sh'
 fi
 
-printf "\e[32mPlease copy games files to your Exhumed directory! ..." > /dev/tty1
+printf "\e[32mPlease copy games files to your Exhumed directory! ...\n" > /dev/tty1
 unzip -qq -o exhumed.zip -d ../
 chmod +x "../Exhumed.sh"
 
@@ -22,5 +22,5 @@ mkdir -p ~/.config/rednukem
 mv ../Exhumed/rednukem.cfg ~/.config/rednukem/
 mv ../Exhumed/settings.cfg ~/.config/rednukem/
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf exhumed.zip

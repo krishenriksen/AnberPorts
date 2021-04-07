@@ -2,11 +2,11 @@
 # Video game developed by Monolith Productions.
 # Release: 1997    Genre: First-person shooter
 
-printf "\e[32mDownloading Blood ..." > /dev/tty1
+printf "\e[32mDownloading Blood ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/blood.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/blood.zip'
   wget -q -O "../Blood.sh" 'http://139.196.213.206/releases/anberports/misc/Blood.sh'
@@ -14,7 +14,7 @@ else
   wget -q -O "../Blood.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Blood.sh'
 fi
 
-printf "\e[32mPlease copy games files to your Blood directory! ..." > /dev/tty1
+printf "\e[32mPlease copy games files to your Blood directory! ...\n" > /dev/tty1
 unzip -qq -o blood.zip -d ../
 chmod +x "../Blood.sh"
 
@@ -22,5 +22,5 @@ mkdir -p ~/.config/nblood
 mv ../Blood/nblood.cfg ~/.config/nblood/
 mv ../Blood/settings.cfg ~/.config/nblood/
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf blood.zip

@@ -2,11 +2,11 @@
 # First-person shooter video game developed by id Software.
 # Release: 1992    Genre: First-person shooter
 
-printf "\e[32mDownloading Wolfenstein 3D ..." > /dev/tty1
+printf "\e[32mDownloading Wolfenstein 3D ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/wolfenstein3d.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/wolfenstein3d.zip'
   wget -q -O "../Wolfenstein 3D.sh" 'http://139.196.213.206/releases/anberports/misc/Wolfenstein%203D.sh'
@@ -20,7 +20,7 @@ else
   wget -q -O "../Wolfenstein 3D - Spear of Destiny MP3.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Wolfenstein%203D%20-%20Spear%20of%20Destiny%20MP3.sh'
 fi
 
-printf "\e[32mPlease copy game files to your ecwolf directory! ..." > /dev/tty1
+printf "\e[32mPlease copy game files to your ecwolf directory! ...\n" > /dev/tty1
 unzip -qq -o wolfenstein3d.zip -d ../
 
 chmod +x "../Wolfenstein 3D.sh"
@@ -28,5 +28,5 @@ chmod +x "../Wolfenstein 3D - Spear of Destiny.sh"
 chmod +x "../Wolfenstein 3D - Spear of Destiny MP2.sh"
 chmod +x "../Wolfenstein 3D - Spear of Destiny MP3.sh"
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf wolfenstein3d.zip

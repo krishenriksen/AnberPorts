@@ -2,11 +2,11 @@
 # Unique platformer with randomized levels.
 # Release: 2008    Genre: Side-scrolling platform
 
-printf "\e[32mDownloading Spelunky ..." > /dev/tty1
+printf "\e[32mDownloading Spelunky ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/spelunky.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/spelunky.zip'
   wget -q -O "../Spelunky.sh" 'http://139.196.213.206/releases/anberports/misc/Spelunky.sh'
@@ -14,11 +14,11 @@ else
   wget -q -O "../Spelunky.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Spelunky.sh'
 fi
 
-printf "\e[32mExtracting ..." > /dev/tty1
+printf "\e[32mExtracting ...\n" > /dev/tty1
 unzip -qq -o spelunky.zip -d ../
 chmod +x "../Spelunky.sh"
 
 cp -r ../spelunky/SpelunkyClassicHD ~/.config/
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf spelunky.zip

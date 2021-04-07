@@ -2,11 +2,11 @@
 # First-person shooter video game developed by Rebellion Developments.
 # Release: 2010    Genre: First-person shooter
 
-printf "\e[32mDownloading Alien vs. Predator ..." > /dev/tty1
+printf "\e[32mDownloading Alien vs. Predator ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/avp.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/avp.zip'
   wget -q -O "../Alien vs. Predator.sh" 'http://139.196.213.206/releases/anberports/misc/Alien%20vs.%20Predator.sh'
@@ -14,9 +14,9 @@ else
   wget -q -O "../Alien vs. Predator.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Alien%20vs.%20Predator.sh'
 fi
 
-printf "\e[32mPlease copy games files to your Alien vs. Predator directory! ..." > /dev/tty1
+printf "\e[32mPlease copy games files to your Alien vs. Predator directory! ...\n" > /dev/tty1
 unzip -qq -o avp.zip -d ../
 chmod +x "../Alien vs. Predator.sh"
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf avp.zip

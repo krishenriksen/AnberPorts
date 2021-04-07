@@ -2,11 +2,11 @@
 # The game combine shooting combat, puzzles, and storytelling.
 # Release: 2001    Genre: First-person shooter
 
-printf "\e[32mDownloading Half-Life: Blue Shift ..." > /dev/tty1
+printf "\e[32mDownloading Half-Life: Blue Shift ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/half-life.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/half-life.zip'
   wget -q -O "../Half-Life Blue Shift.sh" 'http://139.196.213.206/releases/anberports/misc/Half-Life%20Blue%20Shift.sh'
@@ -14,9 +14,9 @@ else
   wget -q -O "../Half-Life Blue Shift.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Half-Life%20Blue%20Shift.sh'
 fi
 
-printf "\e[32mExtracting ..." > /dev/tty1
+printf "\e[32mExtracting ...\n" > /dev/tty1
 unzip -qq -o half-life.zip -d ../
 chmod +x "../Half-Life Blue Shift.sh"
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf half-life.zip

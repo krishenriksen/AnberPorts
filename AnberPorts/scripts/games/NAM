@@ -2,11 +2,11 @@
 # Game set during the Vietnam War, developed by TNT Team.
 # Release: 1998    Genre: First-person shooter
 
-printf "\e[32mDownloading NAM ..." > /dev/tty1
+printf "\e[32mDownloading NAM ...\n" > /dev/tty1
 
 wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/nam.zip'
 if [[ $? -ne 0 ]]; then
-  printf "\e[32mDownloading failed, trying another server ..." > /dev/tty1
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
 
   wget 'http://139.196.213.206/releases/anberports/misc/nam.zip'
   wget -q -O "../NAM.sh" 'http://139.196.213.206/releases/anberports/misc/NAM.sh'
@@ -14,7 +14,7 @@ else
   wget -q -O "../NAM.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/NAM.sh'
 fi
 
-printf "\e[32mPlease copy games files to your NAM directory! ..." > /dev/tty1
+printf "\e[32mPlease copy games files to your NAM directory! ...\n" > /dev/tty1
 unzip -qq -o nam.zip -d ../
 chmod +x "../NAM.sh"
 
@@ -22,5 +22,5 @@ mkdir -p ~/.config/rednukem
 mv ../NAM/rednukem.cfg ~/.config/rednukem/
 mv ../NAM/settings.cfg ~/.config/rednukem/
 
-printf "\e[32mCleaning Up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf nam.zip
