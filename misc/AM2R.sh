@@ -7,7 +7,7 @@ BINDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/AnberP
 export LIBGL_FB=4
 
 # system
-export LD_LIBRARY_PATH=$LIBDIR:/usr/lib32
+export LD_LIBRARY_PATH=$LIBDIR:/usr/lib32:/usr/local/lib/arm-linux-gnueabihf/
 
 # box86
 export BOX86_ALLOWMISSINGLIBS=1
