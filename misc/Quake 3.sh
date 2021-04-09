@@ -4,7 +4,7 @@ LIBDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/AnberP
 BINDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/AnberPorts/bin"
 
 # system
-export LD_LIBRARY_PATH=$GAMEDIR/lib:$LIBDIR:/usr/lib32:/usr/local/lib/arm-linux-gnueabihf/
+export LD_LIBRARY_PATH=$LIBDIR:/usr/lib32:/usr/local/lib/arm-linux-gnueabihf/
 
 cd $GAMEDIR
 
