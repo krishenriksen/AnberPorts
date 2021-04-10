@@ -678,7 +678,7 @@ int main(int argc, char* argv[]) {
 	    }
     }
 
-	fd_ev_joypad = open("/dev/input/event2", O_RDONLY|O_NONBLOCK);
+	fd_ev_joypad = open("/dev/input/by-path/platform-ff300000.usb-usb-0:1.2:1.0-event-joystick", O_RDONLY|O_NONBLOCK);
 	rc_joypad = libevdev_new_from_fd(fd_ev_joypad, &dev_joypad);
 
 	do {
