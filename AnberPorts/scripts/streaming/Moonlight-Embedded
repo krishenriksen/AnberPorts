@@ -2,11 +2,21 @@
 # Gamestream client for embedded systems
 # Release: 2017    Genre: Streaming
 
-printf "\e[32mDownloading Moonlight-Embedded ..." > /dev/tty1
-wget -q 'https://github.com/krishenriksen/moonlight-embedded-rg351p/releases/download/1.0.0/moonlight-embedded.zip'
+printf "\e[32mDownloading Moonlight-Embedded ...\n" > /dev/tty1
 
-printf "\e[32mExtracting ..." > /dev/tty1
+wget -q 'https://github.com/krishenriksen/AnberPorts/raw/master/misc/moonlight-embedded.zip'
+if [[ $? -ne 0 ]]; then
+  printf "\e[32mDownloading failed, trying another server ...\n" > /dev/tty1
+
+  wget 'http://139.196.213.206/releases/anberports/misc/moonlight-embedded.zip'
+  wget -q -O "../Moonlight Embedded.sh" 'http://139.196.213.206/releases/anberports/misc/Moonlight%20Embedded.sh'
+else
+  wget -q -O "../Moonlight Embedded.sh" 'https://raw.githubusercontent.com/krishenriksen/AnberPorts/master/misc/Moonlight%20Embedded.sh'
+fi
+
+printf "\e[32mExtracting ...\n" > /dev/tty1
 unzip -qq -o moonlight-embedded.zip -d ../
+chmod +x "../Moonlight Embedded.sh"
 
-printf "\e[32mCleaning up ..." > /dev/tty1
+printf "\e[32mCleaning Up ...\n" > /dev/tty1
 rm -rf moonlight-embedded.zip
