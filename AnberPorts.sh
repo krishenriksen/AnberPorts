@@ -45,6 +45,10 @@ if [ -z "$GW" ]; then
 fi
 
 if id "ark" &>/dev/null || id "odroid" &>/dev/null; then
+  if ! dpkg -s "dialog" &> /dev/null ; then
+    install_dependencies="$install_dependencies dialog"
+  fi
+
   if ! dpkg -s "zip" &> /dev/null ; then
     install_dependencies="$install_dependencies zip"
   fi
