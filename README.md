@@ -9,5 +9,5 @@
 
 ## Support the project
 
-[<img src="https://github.com/krishenriksen/AnberPorts/raw/master/patreon.png" width="176"/>](https://www.patreon.com/bePatron?u=54003740)
-[<img src="https://github.com/krishenriksen/AnberPorts/raw/master/sponsor.png" width="280"/>](https://github.com/sponsors/krishenriksen)
+[<img src="https://github.com/krishenriksen/AnberPorts/raw/master/patreon.png"/>](https://www.patreon.com/bePatron?u=54003740)
+[<img src="https://github.com/krishenriksen/AnberPorts/raw/master/sponsor.png"/>](https://github.com/sponsors/krishenriksen)
