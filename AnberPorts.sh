@@ -75,7 +75,7 @@ if id "ark" &>/dev/null || id "odroid" &>/dev/null; then
 
   if [ ! -z "$install_dependencies" ]
   then
-  	printf "\e[32mnstalling dependencies ...\n" > /dev/tty1
+  	printf "\e[32mInstalling dependencies ...\n" > /dev/tty1
     sudo apt update && sudo apt install -y $install_dependencies --no-install-recommends
   fi
 fi
