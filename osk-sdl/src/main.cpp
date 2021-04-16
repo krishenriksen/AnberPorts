@@ -33,8 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <chrono>
 
 Uint32 EVENT_RENDER;
-constexpr char EnterText[] = "Enter Text";
-constexpr char EnterPass[] = "Enter Password";
+char boxString[] = "Enter Text";
 
 //Game Controller 1 handler
 SDL_Joystick* gGameController = NULL;
@@ -69,11 +68,11 @@ int main(int argc, char* argv[])
 		}
 		else if (strcmp(argv[1], "-v") == 0) {
 			SDL_Log("osk-sdl v%s", VERSION);
-			exit(0);			
-		}
-		else {
-			SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Usage: osk-sdl [-p]");
 			exit(0);
+		}
+
+		if (argc >= 3) {
+			strcpy(boxString, argv[2]);
 		}
 	}
 
@@ -182,13 +181,13 @@ int main(int argc, char* argv[])
 	}
 
 	Tooltip enterTextTooltip(TooltipType::info, inputWidth, inputHeight, inputBoxRadius, &config);
-	if (enterTextTooltip.init(renderer, EnterText)) {
+	if (enterTextTooltip.init(renderer, boxString)) {
 		SDL_LogError(SDL_LOG_CATEGORY_VIDEO, "Failed to initialize enterTextTooltip!");
 		exit(EXIT_FAILURE);
 	}
 
 	Tooltip enterPassTooltip(TooltipType::pass, inputWidth, inputHeight, inputBoxRadius, &config);
-	if (enterPassTooltip.init(renderer, EnterPass)) {
+	if (enterPassTooltip.init(renderer, boxString)) {
 		SDL_LogError(SDL_LOG_CATEGORY_VIDEO, "Failed to initialize enterPassTooltip!");
 		exit(EXIT_FAILURE);
 	}
