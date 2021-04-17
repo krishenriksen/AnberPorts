@@ -12,6 +12,9 @@ $ meson --prefix=/roms/ports/AnberPorts/bin/ -Dbuildtype=release build
 $ meson compile -j4 -C build
 ```
 
+### Install
+Place `DejaVuSans.ttf` in home directory of current user.
+
 ### Usage
 
 For text input
