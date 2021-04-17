@@ -18,7 +18,7 @@ $ meson compile -j4 -C build
 ```
 
 ### Install
-Place `DejaVuSans.ttf` in home directory of current user.
+Place `DejaVuSans.ttf` in home directory of current user if using via emulationstation.
 
 ### Usage
 
