@@ -31,13 +31,13 @@ For password input
 
 d-pad controls which character is selected, and movement will highlight the char.
 
-A button, will input the selected character.
-B button, will add a space.
-X button, will simulate backspace.
-Y button, will toggle capslock.
+- A button, will input the selected character.
+- B button, will add a space.
+- X button, will simulate backspace.
+- Y button, will toggle capslock.
 
-SELECT button, will quit without outputting input string.
-START button, will output the current input.
+- SELECT button, will quit without outputting input string.
+- START button, will output the current input.
 
 ## Support the project
 
