@@ -66,6 +66,9 @@ int main(int argc, char* argv[])
 		if (strcmp(argv[1], "-p") == 0) {
 			typePass = true;
 		}
+		else if (strcmp(argv[1], "-t") == 0) {
+			typePass = false;
+		}
 		else if (strcmp(argv[1], "-v") == 0) {
 			SDL_Log("osk-sdl v%s", VERSION);
 			exit(0);
