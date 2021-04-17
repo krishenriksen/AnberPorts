@@ -27,6 +27,18 @@ For password input
 
 `osk-sdl -p "Enter Password"`
 
+### Controls
+
+d-pad controls which character is selected, and movement will highlight the char.
+
+A button, will input the selected character.
+B button, will add a space.
+X button, will simulate backspace.
+Y button, will toggle capslock.
+
+SELECT button, will quit without outputting input string.
+START button, will output the current input.
+
 ## Support the project
 
 [<img src="https://github.com/krishenriksen/AnberPorts/raw/master/patreon.png"/>](https://www.patreon.com/bePatron?u=54003740) [<img src="https://github.com/krishenriksen/AnberPorts/raw/master/sponsor.png"/>](https://github.com/sponsors/krishenriksen)
