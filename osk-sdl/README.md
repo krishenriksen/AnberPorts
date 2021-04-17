@@ -25,7 +25,7 @@ For text input
 
 For password input
 
-`osk-sdl -p "Enter Text"`
+`osk-sdl -p "Enter Password"`
 
 ## Support the project
 
