@@ -33,7 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <chrono>
 
 Uint32 EVENT_RENDER;
-char boxString[] = "Enter Text";
+char boxString[100] = "Enter Text";
 
 //Game Controller 1 handler
 SDL_Joystick* gGameController = NULL;
