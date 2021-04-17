@@ -382,7 +382,7 @@ int main(int argc, char* argv[])
 	}
 
 QUIT:
-	SDL_QuitSubSystem(SDL_INIT_VIDEO | SDL_INIT_EVENTS | SDL_INIT_TIMER | SDL_INIT_HAPTIC);
+	SDL_QuitSubSystem(SDL_INIT_VIDEO | SDL_INIT_EVENTS | SDL_INIT_TIMER | SDL_INIT_JOYSTICK | SDL_INIT_HAPTIC);
 
 	std::string pass = strVector2str(textinput);
 	printf("%s", pass.c_str());
