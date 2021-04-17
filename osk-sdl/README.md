@@ -37,7 +37,7 @@ d-pad controls which character is selected, and movement will highlight the char
 - Y button, will toggle capslock.
 
 - SELECT button, will quit without outputting input string.
-- START button, will output the current input.
+- START button, will output the current input to current tty
 
 ## Support the project
 
