@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "tooltip.h"
 #include "draw_helpers.h"
+#include "font.h"
 
 Tooltip::Tooltip(TooltipType type, int width, int height, int cornerRadius, Config *config)
 	: config(config)
@@ -75,7 +76,9 @@ int Tooltip::init(SDL_Renderer *renderer, const std::string &text)
 		smooth_corners_surface(surface, SDL_MapRGBA(surface->format, 0, 0, 0, 0), &rect, cornerRadius);
 	}
 
-	TTF_Font *font = TTF_OpenFont(config->keyboardFont.c_str(), config->keyboardFontSize);
+	SDL_RWops *io = SDL_RWFromConstMem(DejaVuSans, 757076);
+	TTF_Font *font = TTF_OpenFontRW(io, 1, config->keyboardFontSize);
+
 	SDL_Surface *textSurface;
 	SDL_Color textColor = { foregroundColor.r, foregroundColor.g, foregroundColor.b, foregroundColor.a };
 	textSurface = TTF_RenderText_Blended(font, text.c_str(), textColor);

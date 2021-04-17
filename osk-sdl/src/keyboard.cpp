@@ -20,6 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "keyboard.h"
 #include "draw_helpers.h"
+#include "font.h"
 
 Keyboard::Keyboard(int pos, int targetPos, int width, int height, Config *config, SDL_Haptic *haptic)
 	: position(static_cast<float>(pos))
@@ -314,7 +315,9 @@ SDL_Surface *Keyboard::makeKeyboard(KeyboardLayer *layer, bool isHighlighted) co
 		return nullptr;
 	}
 
-	TTF_Font *font = TTF_OpenFont(config->keyboardFont.c_str(), config->keyboardFontSize);
+	SDL_RWops *io = SDL_RWFromConstMem(DejaVuSans, 757076);
+	TTF_Font *font = TTF_OpenFontRW(io, 1, config->keyboardFontSize);
+
 	if (!font) {
 		SDL_LogError(SDL_LOG_CATEGORY_VIDEO, "TTF_OpenFont: %s", TTF_GetError());
 		return nullptr;

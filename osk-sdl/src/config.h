@@ -40,7 +40,6 @@ class Config {
 public:
 	argb wallpaper = parseHexString("#000000");
 	argb keyboardBackground = parseHexString("#0E0E12");
-	std::string keyboardFont = "DejaVuSans.ttf";
 	int keyboardFontSize = 24;
 	std::string keyboardMap = "us";
 	argb keyForeground = parseHexString("#FFFFFF");
@@ -57,7 +56,7 @@ public:
 	argb inputBoxBackground = parseHexString("#32363E");
 	argb inputBoxBackgroundError = parseHexString("#E76A63");
 	std::string inputBoxRadius = "0";
-	bool animations = true;
+	bool animations = false;
 
 private:
 	std::map<std::string, std::string> options;

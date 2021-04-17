@@ -41,7 +41,6 @@ SDL_Joystick* gGameController = NULL;
 int main(int argc, char* argv[])
 {
 	std::vector<std::string> textinput;
-	std::vector<std::string> passphrase;
 
 	Config config;
 	SDL_Event event;
@@ -50,8 +49,7 @@ int main(int argc, char* argv[])
 	SDL_Haptic *haptic = nullptr;
 	std::chrono::milliseconds repeat_delay { 25 }; // Keyboard key repeat rate in ms
 
-	int WIDTH = 480;
-	int HEIGHT = 320;
+	int w, h;
 
 	bool typePass = false;
 
@@ -103,12 +101,12 @@ int main(int argc, char* argv[])
 
 	/*
 	 * Set up display and renderer
-	 * Use windowed mode in test mode and device resolution otherwise
+	 * Use device resolution
 	 */
 	Uint32 windowFlags = SDL_WINDOW_FULLSCREEN;
 
-	display = SDL_CreateWindow("OSK SDL", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT,
-		windowFlags);
+	display = SDL_CreateWindow("OSK SDL", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 0, 0, windowFlags);
+
 	if (display == nullptr) {
 		SDL_LogError(SDL_LOG_CATEGORY_VIDEO, "Could not create window/display: %s", SDL_GetError());
 		exit(EXIT_FAILURE);
@@ -128,16 +126,19 @@ int main(int argc, char* argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	int keyboardHeight = HEIGHT / 3 * 2;
-	if (HEIGHT > WIDTH) {
+	// get width / height
+	SDL_GetRendererOutputSize(renderer, &w, &h);
+
+	int keyboardHeight = h / 3 * 2;
+	if (h > w) {
 		// Keyboard height is screen width / max number of keys per row * rows
 		// Denominator below chosen to provide enough room for a 5 row layout without causing key height to
 		// shrink too much
-		keyboardHeight = WIDTH / 1.6;
+		keyboardHeight = w / 1.6;
 	}
 
-	int inputWidth = static_cast<int>(WIDTH * 0.9);
-	int inputHeight = static_cast<int>(WIDTH * 0.1);
+	int inputWidth = static_cast<int>(w * 0.9);
+	int inputHeight = static_cast<int>(w * 0.1);
 
 	if (SDL_SetRenderDrawColor(renderer, 255, 128, 0, SDL_ALPHA_OPAQUE) != 0) {
 		SDL_LogError(SDL_LOG_CATEGORY_VIDEO, "Could not set background color: %s", SDL_GetError());
@@ -164,7 +165,7 @@ int main(int argc, char* argv[])
 	}
 
 	// Initialize virtual keyboard
-	Keyboard keyboard(0, 1, WIDTH, keyboardHeight, &config, haptic);
+	Keyboard keyboard(0, 1, w, keyboardHeight, &config, haptic);
 	if (keyboard.init(renderer)) {
 		SDL_LogError(SDL_LOG_CATEGORY_VIDEO, "Failed to initialize keyboard!");
 		exit(EXIT_FAILURE);
@@ -173,7 +174,7 @@ int main(int argc, char* argv[])
 	// Make SDL send text editing events for textboxes
 	SDL_StartTextInput();
 
-	SDL_Surface *wallpaper = make_wallpaper(&config, WIDTH, HEIGHT);
+	SDL_Surface *wallpaper = make_wallpaper(&config, w, h);
 	SDL_Texture *wallpaperTexture = SDL_CreateTextureFromSurface(renderer, wallpaper);
 
 	int inputBoxRadius = std::strtol(config.inputBoxRadius.c_str(), nullptr, 10);
@@ -200,9 +201,9 @@ int main(int argc, char* argv[])
 	SDL_Surface *inputBox = make_input_box(inputWidth, inputHeight, &inputBoxColor, inputBoxRadius);
 	SDL_Texture *inputBoxTexture = SDL_CreateTextureFromSurface(renderer, inputBox);
 
-	int topHalf = static_cast<int>(HEIGHT - (keyboard.getHeight() * keyboard.getPosition()));
+	int topHalf = static_cast<int>(h - (keyboard.getHeight() * keyboard.getPosition()));
 	SDL_Rect inputBoxRect = SDL_Rect {
-		.x = WIDTH / 20,
+		.x = w / 20,
 		.y = static_cast<int>(topHalf / 3.5),
 		.w = inputWidth,
 		.h = inputHeight
@@ -243,7 +244,7 @@ int main(int argc, char* argv[])
 					}
 
 					case 4: { // down
-						if (locy < (HEIGHT - 47)) {
+						if (locy < (h - 47)) {
 							locy += 47;
 						}
 						break;
@@ -257,21 +258,21 @@ int main(int argc, char* argv[])
 					}
 
 					case 2: { // right
-						if (locx < (WIDTH - 47)) {
+						if (locx < (w - 47)) {
 							locx += 47;
 						}
 						break;
 					}
 				}
 
-				handleTapBegin(locx, locy, HEIGHT, keyboard);
+				handleTapBegin(locx, locy, h, keyboard);
 				SDL_PushEvent(&renderEvent);
 			}
 
 			if (event.type == SDL_JOYBUTTONDOWN) {
 				switch (event.jbutton.button) {
 					case 0: { // a
-						if (handleTapEnd(locx, locy, HEIGHT, keyboard, (typePass ? passphrase : textinput))) {
+						if (handleTapEnd(locx, locy, h, keyboard, textinput)) {
 							goto QUIT;
 						}
 						break;
@@ -279,12 +280,12 @@ int main(int argc, char* argv[])
 
 					case 1: { // b
 						// space
-						handleTapEnd(240, 280, HEIGHT, keyboard, (typePass ? passphrase : textinput));
+						textinput.emplace_back(" ");
 						break;
 					}
 
 					case 2: { // x
-						setBackspace((typePass ? passphrase : textinput));
+						setBackspace(textinput);
 						break;
 					}
 
@@ -335,17 +336,17 @@ int main(int argc, char* argv[])
 					render_times++;
 					SDL_RenderCopy(renderer, wallpaperTexture, nullptr, nullptr);
 
-					topHalf = static_cast<int>(HEIGHT - (keyboard.getHeight() * keyboard.getPosition()));
+					topHalf = static_cast<int>(h - (keyboard.getHeight() * keyboard.getPosition()));
 					inputBoxRect.y = static_cast<int>(topHalf / 3.5);
 
 					SDL_RenderCopy(renderer, inputBoxTexture, nullptr, &inputBoxRect);
 
 					if (typePass) {
-						if (passphrase.size() == 0) {
+						if (textinput.size() == 0) {
 							enterPassTooltip.draw(renderer, inputBoxRect.x, inputBoxRect.y);
 						}
 						else {
-							draw_password_box_dots(renderer, &config, inputBoxRect, passphrase.size());
+							draw_password_box_dots(renderer, &config, inputBoxRect, textinput.size());
 						}
 					} else {
 						if (textinput.size() > 0) {
@@ -356,7 +357,7 @@ int main(int argc, char* argv[])
 					}
 
 					// Draw keyboard last so that key previews don't get drawn over by e.g. the input box
-					keyboard.draw(renderer, HEIGHT);
+					keyboard.draw(renderer, h);
 					SDL_RenderPresent(renderer);
 					if (keyboard.isInSlideAnimation()) {
 						// No need to double-flip if we'll redraw more for animation
@@ -383,7 +384,7 @@ int main(int argc, char* argv[])
 QUIT:
 	SDL_QuitSubSystem(SDL_INIT_VIDEO | SDL_INIT_EVENTS | SDL_INIT_TIMER | SDL_INIT_HAPTIC);
 
-	std::string pass = strVector2str((typePass ? passphrase : textinput));
+	std::string pass = strVector2str(textinput);
 	printf("%s", pass.c_str());
 	fflush(stdout);
 
