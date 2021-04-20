@@ -224,7 +224,7 @@ int main(int argc, char* argv[])
 	unsigned int cur_ticks = 0, Elapsed_Time;
 
 	int locx = 47;
-	int locy = 90;
+	int locy = 137;
 
 	// Process incoming SDL events
 	bool done = false;
@@ -240,12 +240,18 @@ int main(int argc, char* argv[])
 						if (locy >= 165) {
 							locy -= 47;
 						}
+						else {
+							locy = (h - 47);
+						}
 						break;
 					}
 
 					case 4: { // down
 						if (locy < (h - 47)) {
 							locy += 47;
+						}
+						else {
+							locy = 137;
 						}
 						break;
 					}
@@ -254,6 +260,9 @@ int main(int argc, char* argv[])
 						if (locx >= 90) {
 							locx -= 47;
 						}
+						else {
+							locx = (w - 47);
+						}
 						break;
 					}
 
@@ -261,9 +270,14 @@ int main(int argc, char* argv[])
 						if (locx < (w - 47)) {
 							locx += 47;
 						}
+						else {
+							locx = 47;
+						}
 						break;
 					}
 				}
+
+				printf("x: %i  y: %i\n", locx, locy);
 
 				handleTapBegin(locx, locy, h, keyboard);
 				SDL_PushEvent(&renderEvent);
