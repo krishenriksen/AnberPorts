@@ -8,7 +8,7 @@ If you append application as argument to launch command, you can quit by using S
 
 `sudo ./oga_controls Application &`
 
-This will `pgrep -f Application  | xargs kill -9`
+This will `pgrep -f Application  | xargs kill -9` when pressing Start + Select.
 
 # /etc/udev/rules.d
 ```
