@@ -1,16 +1,9 @@
 #!/bin/bash
 GAMEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/moonlight-embedded"
-LIBDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/AnberPorts/lib64"
 BINDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/AnberPorts/bin"
 
 export TERM=linux
 export XDG_RUNTIME_DIR=/run/user/$UID/
-
-# gl4es
-export LIBGL_FB=4
-
-export LD_LIBRARY_PATH=$LIBDIR:/usr/lib
-export LD_PRELOAD=$LIBDIR/libGL.so.1
 
 if id "ark" &>/dev/null || id "odroid" &>/dev/null; then
   sudo chmod 666 /dev/tty1
@@ -22,16 +15,6 @@ if id "ark" &>/dev/null || id "odroid" &>/dev/null; then
 fi
 
 mapfile settings < $GAMEDIR/settings.txt
-
-CleanUp() {
-  if id "ark" &>/dev/null || id "odroid" &>/dev/null; then
-    pgrep -f "Moonlight Embedded" | sudo xargs kill -9
-    pgrep -f oga_controls | sudo xargs kill -9
-  else
-    pgrep -f "Moonlight Embedded" | xargs kill -9
-    pgrep -f oga_controls | xargs kill -9
-  fi
-}
 
 SaveSettings() {
   for j in "${settings[@]}"
@@ -46,16 +29,18 @@ Steam() {
 	if [ -z "$IP" ]; then
 		Pair
 	else
-		CleanUp
-
 		ip=$(echo ${settings[0]}|tr -d '\n')
 		fps=$(echo ${settings[1]}|tr -d '\n')
 		res=$(echo ${settings[2]}|tr -d '\n')
 		app=$(echo ${settings[3]}|tr -d '\n')
 		platform=$(echo ${settings[4]}|tr -d '\n')
 
-		export LD_LIBRARY_PATH=$GAMEDIR/lib:$LIBDIR:/usr/lib
-		$GAMEDIR/moonlight stream -fps $fps $res --unsupported --nosops -mapping gamecontrollerdb.txt -app $app -platform $platform -codec h265 -bitrate 5000 $ip > /dev/tty1
+		pgrep -f oga_controls | sudo xargs kill -9
+
+		printf "\033c" > /dev/tty1
+
+		export LD_LIBRARY_PATH=$GAMEDIR/lib:/usr/lib
+		$GAMEDIR/moonlight stream -fps $fps $res --unsupported --nosops -mapping $GAMEDIR/gamecontrollerdb.txt -app $app -platform $platform $ip > /dev/tty1
 
 		exit
 	fi
@@ -164,13 +149,16 @@ App() {
 }
 
 Pair() {
-	osk "IP Address or Computer name" > $GAMEDIR/ip.txt
-	echo $(cat ip.txt |sed -n 2p) > $GAMEDIR/ip.txt
-	settings[0]="$(cat $GAMEDIR/ip.txt)"
-	SaveSettings
+  IP=`$BINDIR/osk-sdl -t "Enter IP address" | tail -n 1`
+  settings[0]="$IP"
+  SaveSettings
 
-	export LD_LIBRARY_PATH=$GAMEDIR/lib:$LIBDIR:/usr/lib
-	$GAMEDIR/moonlight pair "${settings[0]}" > /dev/tty1
+  echo "$IP" > $GAMEDIR/ip.txt
+
+  printf "\033c" > /dev/tty1
+
+  export LD_LIBRARY_PATH=$GAMEDIR/lib:/usr/lib
+  $GAMEDIR/moonlight pair "$IP" > /dev/tty1
 }
 
 Settings() {
@@ -210,38 +198,39 @@ Settings() {
     esac
 }
 
-Joystick() {
-  if id "ark" &>/dev/null || id "odroid" &>/dev/null; then
-  	sudo $BINDIR/oga_controls "Moonlight Embedded" &
-  else
-    $BINDIR/oga_controls "Moonlight Embedded" &
-  fi
-}
-
 #
 # Joystick controls
 #
-Joystick
+# only one instance
+if ! pgrep -x "oga_controls" > /dev/null; then
+  sudo $BINDIR/oga_controls Moonlight Embedded.sh &
+fi
 
 #
 # Main menu
 #
 while true; do
-	cmd=(dialog --clear --backtitle "Moonlight Game Streaming: Play Your PC Games Remotely" --title "Paired with ${settings[0]}" --menu "You can use UP/DOWN on the D-pad and A to select:" "15" "55" "15")
+	pair=`cat $GAMEDIR/log.txt | tail -n 1`
+
+    selection=(dialog \
+   	--backtitle "Moonlight Game Streaming: Play Your PC Games Remotely" \
+   	--title "Paired with ${settings[0]}" \
+   	--no-collapse \
+   	--clear \
+	--cancel-label "Select + Start to Exit" \
+    --menu "$pair" 9 55 9)
 
 	options=(
 		"1)" "Start Streaming"
 		"2)" "Settings"
-		"3)" "Exit"
 	)
 
-	choices=$("${cmd[@]}" "${options[@]}" 2>&1 > /dev/tty1)
+	choices=$("${selection[@]}" "${options[@]}" 2>&1 > /dev/tty1)
 
 	for choice in $choices; do
 		case $choice in
 			"1)") Steam ;;
 			"2)") Settings ;;
-			"3)") CleanUp; exit ;;
 		esac
 	done
 done
