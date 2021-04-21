@@ -2,7 +2,7 @@
 Emulated keyboard / mouse / joystick for Anbernic rg351p / rg351m / rg351v
 
 # Howto
-Launch with `sudo ./oga_controls` or add current user to uinput via udev rule.
+Launch with `sudo ./oga_controls` or add current user to uinput via udev rule to avoid using sudo.
 
 If you append application as argument to launch command, you can quit by using Start + Select like so:
 
